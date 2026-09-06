@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jolly's Kalyan — Smash Burgers, Wraps &amp; Fast Food in Khadakpada, Kalyan</title>
+<meta name="description" content="Jolly's Kalyan serves smash burgers, wraps, loaded fries and desserts on Birla College Road, near Sky Deck, West Khadakpada, Kalyan. Rated 4.6★ on Google. Open till 12:30 AM. Order on Swiggy or visit us.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500&amp;display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FastFoodRestaurant",
+  "name": "Jolly's Kalyan",
+  "servesCuisine": ["Burgers", "Fast Food", "Cafe"],
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Birla College Road, near Sky Deck, West Khadakpada",
+    "addressLocality": "Kalyan",
+    "addressRegion": "Maharashtra",
+    "postalCode": "421301",
+    "addressCountry": "IN"
+  },
+  "telephone": "+91-6001-005800",
+  "priceRange": "₹200–₹400",
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.6",
+    "reviewCount": "88"
+  },
+  "openingHoursSpecification": [{
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+    "opens": "11:00",
+    "closes": "00:30"
+  }]
+}
+</script>
+<style>
+  :root{
+    --red: #c4122e;
+    --red-dark: #7c0b1e;
+    --red-deep: #4c0714;
+    --cream: #f5eee0;
+    --paper: #fbf7ed;
+    --charcoal: #17110d;
+    --charcoal-2: #241a13;
+    --gold: #eea23a;
+    --gold-light: #f6c878;
+    --ink: #201409;
+    --ink-soft: #55483d;
+    --line: rgba(32,20,9,0.12);
+    --shadow-red: 0 20px 45px -20px rgba(124,11,30,0.55);
+    --radius-s: 6px;
+    --radius-m: 14px;
+    --ff-display: 'Bebas Neue', 'Arial Narrow', sans-serif;
+    --ff-body: 'Plus Jakarta Sans', sans-serif;
+  }
+
+  *,*::before,*::after{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior: auto; }
+    *,*::before,*::after{ animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+  }
+  body{
+    margin:0;
+    font-family: var(--ff-body);
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  img{ max-width:100%; display:block; }
+  a{ color:inherit; }
+  ul{ margin:0; padding:0; list-style:none; }
+  section{ position:relative; }
+  .container{ max-width: 1240px; margin: 0 auto; padding: 0 28px; }
+  @media (max-width: 640px){ .container{ padding: 0 20px; } }
+
+  h1,h2,h3{ font-family: var(--ff-display); letter-spacing: 0.01em; margin: 0; line-height: 0.95; color: var(--ink); }
+  .eyebrow-free-title{ text-transform: none; }
+  p{ margin: 0; }
+
+  .btn{
+    display:inline-flex; align-items:center; justify-content:center; gap:10px;
+    font-family: var(--ff-body); font-weight: 700; font-size: 0.95rem;
+    padding: 15px 28px; border-radius: 999px; border: 2px solid transparent;
+    cursor:pointer; text-decoration:none; transition: transform .25s ease, box-shadow .25s ease, background .25s ease, color .25s ease;
+    white-space: nowrap;
+  }
+  .btn:focus-visible{ outline: 3px solid var(--gold); outline-offset: 3px; }
+  .btn-primary{ background: var(--red); color: #fff; box-shadow: var(--shadow-red); }
+  .btn-primary:hover{ transform: translateY(-2px); background: var(--red-dark); }
+  .btn-ghost{ background: transparent; color: var(--ink); border-color: var(--ink); }
+  .btn-ghost:hover{ background: var(--ink); color: var(--cream); transform: translateY(-2px); }
+  .btn-ghost-light{ background: transparent; color: #fff; border-color: rgba(255,255,255,0.55); }
+  .btn-ghost-light:hover{ background: #fff; color: var(--charcoal); }
+  .btn-gold{ background: var(--gold); color: var(--charcoal); }
+  .btn-gold:hover{ transform: translateY(-2px); background: var(--gold-light); }
+  .btn-sm{ padding: 10px 20px; font-size: 0.85rem; }
+
+  /* ---------- reveal ---------- */
+  .reveal{ opacity: 0; transform: translateY(28px); transition: opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1); }
+  .reveal.is-visible{ opacity: 1; transform: translateY(0); }
+
+  /* ================= NAV ================= */
+  .nav{
+    position: fixed; top:0; left:0; right:0; z-index: 200;
+    padding: 20px 0;
+    transition: background .35s ease, padding .35s ease, box-shadow .35s ease;
+  }
+  .nav-inner{ display:flex; align-items:center; justify-content:space-between; }
+  .brand{ font-family: var(--ff-display); font-size: 1.9rem; color:#fff; letter-spacing: 0.03em; text-decoration:none; }
+  .nav.scrolled{ background: var(--cream); padding: 12px 0; box-shadow: 0 8px 24px rgba(0,0,0,0.08); }
+  .nav.scrolled .brand{ color: var(--red); }
+  .nav.scrolled .nav-link{ color: var(--ink); }
+  .nav.scrolled .burger-icon span{ background: var(--ink); }
+
+  .nav-links{ display:flex; align-items:center; gap: 34px; }
+  .nav-link{ color:#fff; text-decoration:none; font-weight:600; font-size: 0.95rem; position:relative; padding: 4px 0; }
+  .nav-link::after{ content:""; position:absolute; left:0; bottom:-3px; width:0; height:2px; background: var(--gold); transition: width .3s ease; }
+  .nav-link:hover::after{ width:100%; }
+  .nav-cta{ margin-left: 8px; }
+
+  .burger-icon{ display:none; flex-direction:column; gap:5px; width: 30px; background:none; border:none; cursor:pointer; padding: 6px; }
+  .burger-icon span{ display:block; height:2px; width: 100%; background:#fff; border-radius: 2px; transition: transform .3s ease, opacity .3s ease; }
+
+  .mobile-panel{
+    position: fixed; inset: 0; background: var(--red);
+    display:flex; flex-direction:column; justify-content:center; align-items:center; gap: 30px;
+    transform: translateY(-100%); transition: transform .45s cubic-bezier(.2,.8,.2,1);
+    z-index: 300;
+  }
+  .mobile-panel.open{ transform: translateY(0); }
+  .mobile-panel a{ color:#fff; text-decoration:none; font-family: var(--ff-display); font-size: 2.4rem; letter-spacing: 0.02em; }
+  .mobile-panel .btn{ margin-top: 10px; }
+  .mobile-close{ position:absolute; top: 22px; right: 24px; background:none; border:none; color:#fff; font-size: 2rem; line-height:1; cursor:pointer; }
+
+  @media (max-width: 900px){
+    .nav-links{ display:none; }
+    .burger-icon{ display:flex; }
+  }
+
+  /* ================= HERO ================= */
+  .hero{
+    background: var(--charcoal);
+    color: #fff;
+    padding: 150px 0 90px;
+    overflow: hidden;
+    position: relative;
+  }
+  .hero::before{
+    content:"";
+    position:absolute; inset:0;
+    background: radial-gradient(1200px 500px at 85% 0%, rgba(196,18,46,0.35), transparent 60%);
+    pointer-events:none;
+  }
+  .hero-grid{
+    display:grid; grid-template-columns: 1.05fr 0.95fr; gap: 40px; align-items:center;
+    position:relative; z-index:2;
+  }
+  .hero-kicker{
+    display:inline-flex; align-items:center; gap:10px;
+    background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.18);
+    padding: 8px 16px; border-radius: 999px; font-size: 0.85rem; font-weight:600; margin-bottom: 26px;
+  }
+  .hero-kicker .dot{ width:7px; height:7px; border-radius:50%; background: var(--gold); }
+  .hero h1{
+    font-size: clamp(3rem, 7vw, 5.4rem);
+    color: #fff;
+  }
+  .hero h1 .line2{ color: var(--gold); }
+  .hero-copy{ margin-top: 24px; font-size: 1.15rem; color: rgba(255,255,255,0.78); max-width: 480px; }
+  .hero-actions{ margin-top: 34px; display:flex; flex-wrap:wrap; gap: 16px; }
+  .hero-trust{ margin-top: 40px; display:flex; align-items:center; gap: 22px; flex-wrap:wrap; }
+  .hero-trust .rating{ display:flex; align-items:center; gap:8px; font-weight:700; }
+  .hero-trust .stars{ color: var(--gold); letter-spacing: 2px; }
+  .hero-trust .sep{ width:1px; height: 22px; background: rgba(255,255,255,0.25); }
+  .hero-trust .loc-badge{ display:flex; align-items:center; gap:6px; color: rgba(255,255,255,0.8); font-size:0.92rem; }
+
+  .hero-art{ position:relative; height: 520px; }
+  .hero-art .plate{
+    position:absolute; top: 0; right: -6%; width: 108%; height: 108%;
+    background: linear-gradient(155deg, var(--red) 0%, var(--red-dark) 62%, var(--red-deep) 100%);
+    clip-path: polygon(14% 0%, 100% 0, 100% 86%, 82% 100%, 0 100%, 0 18%);
+    box-shadow: 0 40px 80px -30px rgba(0,0,0,0.6);
+  }
+  .hero-art img.main-food{
+    position:absolute; top: 8%; left: 6%; width: 82%; height: 82%;
+    object-fit: cover; border-radius: 999px 999px 24px 24px / 999px 999px 40px 40px;
+    box-shadow: 0 30px 60px -20px rgba(0,0,0,0.65);
+    transform: rotate(-3deg);
+  }
+  .hero-badge{
+    position:absolute; left: -6%; bottom: 6%;
+    background: var(--paper); color: var(--ink);
+    border-radius: var(--radius-m); padding: 16px 20px;
+    box-shadow: 0 22px 40px -14px rgba(0,0,0,0.4);
+    display:flex; align-items:center; gap: 14px;
+    max-width: 230px;
+  }
+  .hero-badge .num{ font-family: var(--ff-display); font-size: 2.1rem; color: var(--red); line-height:1; }
+  .hero-badge .txt{ font-size: 0.78rem; color: var(--ink-soft); font-weight:600; line-height:1.25; }
+  .hero-tag{
+    position:absolute; top: 6%; right: 2%;
+    background: var(--gold); color: var(--charcoal);
+    padding: 10px 18px; border-radius: 999px; font-weight: 800; font-size: 0.85rem;
+    transform: rotate(6deg);
+    box-shadow: 0 14px 26px -10px rgba(0,0,0,0.5);
+  }
+
+  @media (max-width: 980px){
+    .hero-grid{ grid-template-columns: 1fr; }
+    .hero{ padding-top: 120px; }
+    .hero-art{ height: 420px; margin-top: 30px; order: -1; }
+    .hero-copy{ max-width: 100%; }
+  }
+  @media (max-width: 560px){
+    .hero-art{ height: 340px; }
+    .hero-badge{ left: 0; bottom: -4%; padding: 12px 16px; max-width: 190px; }
+    .hero-badge .num{ font-size: 1.6rem; }
+  }
+
+  /* ================= STATS STRIP ================= */
+  .stats-strip{ background: var(--red); color:#fff; }
+  .stats-inner{
+    display:grid; grid-template-columns: repeat(4,1fr);
+  }
+  .stat-cell{
+    padding: 30px 22px; text-align:center;
+    border-right: 1px solid rgba(255,255,255,0.18);
+  }
+  .stat-cell:last-child{ border-right:none; }
+  .stat-cell .num{ font-family: var(--ff-display); font-size: 2.2rem; color: var(--gold-light); }
+  .stat-cell .lbl{ font-size: 0.85rem; font-weight:600; color: rgba(255,255,255,0.9); margin-top: 4px; }
+  @media (max-width: 760px){
+    .stats-inner{ grid-template-columns: repeat(2,1fr); }
+    .stat-cell{ border-bottom: 1px solid rgba(255,255,255,0.18); }
+    .stat-cell:nth-child(2n){ border-right:none; }
+  }
+
+  /* ================= SECTION HEADS ================= */
+  .section-pad{ padding: 100px 0; }
+  @media (max-width: 700px){ .section-pad{ padding: 70px 0; } }
+  .section-head{ max-width: 640px; margin-bottom: 56px; }
+  .section-head h2{ font-size: clamp(2.4rem, 5vw, 3.6rem); }
+  .section-head p{ margin-top: 16px; font-size: 1.08rem; color: var(--ink-soft); }
+  .section-head.center{ margin-left:auto; margin-right:auto; text-align:center; }
+
+  /* ================= CRAVINGS (bento) ================= */
+  .cravings{ background: var(--paper); }
+  .bento{
+    display:grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-auto-rows: 190px;
+    gap: 18px;
+  }
+  .craving-card{
+    position:relative; border-radius: var(--radius-m); overflow:hidden;
+    color:#fff; text-decoration:none;
+    box-shadow: 0 18px 30px -18px rgba(32,20,9,0.35);
+  }
+  .craving-card img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; transition: transform .6s ease; }
+  .craving-card::before{
+    content:""; position:absolute; inset:0;
+    background: linear-gradient(0deg, rgba(15,9,5,0.86) 0%, rgba(15,9,5,0.15) 55%, rgba(15,9,5,0.05) 100%);
+    transition: background .4s ease;
+  }
+  .craving-card:hover img{ transform: scale(1.07); }
+  .craving-body{ position:relative; z-index:2; height:100%; display:flex; flex-direction:column; justify-content:flex-end; padding: 22px; }
+  .craving-body h3{ font-size: 1.7rem; color:#fff; }
+  .craving-body p{ font-size: 0.86rem; color: rgba(255,255,255,0.82); margin-top: 6px; max-width: 220px; }
+  .craving-cta{ margin-top: 12px; display:inline-flex; align-items:center; gap:8px; font-size:0.8rem; font-weight:700; color: var(--gold-light);
+    opacity:0; transform: translateY(6px); transition: opacity .3s ease, transform .3s ease; }
+  .craving-card:hover .craving-cta{ opacity:1; transform: translateY(0); }
+
+  .c-large{ grid-column: span 3; grid-row: span 2; }
+  .c-med{ grid-column: span 3; grid-row: span 1; }
+  .c-small{ grid-column: span 2; grid-row: span 1; }
+
+  @media (max-width: 980px){
+    .bento{ grid-template-columns: repeat(2,1fr); grid-auto-rows: 220px; }
+    .c-large, .c-med, .c-small{ grid-column: span 1; grid-row: span 1; }
+    .c-large{ grid-column: span 2; grid-row: span 1; height: 300px; }
+  }
+  @media (max-width: 560px){
+    .bento{ grid-template-columns: 1fr; }
+    .c-large{ grid-column: span 1; }
+  }
+
+  /* ================= STORY ================= */
+  .story{ background: var(--charcoal); color: #fff; }
+  .story-grid{ display:grid; grid-template-columns: 0.9fr 1.1fr; gap: 60px; align-items:center; }
+  .story h2{ color:#fff; font-size: clamp(2.4rem,5vw,3.6rem); }
+  .story-lead{ margin-top: 22px; font-size: 1.25rem; color: var(--gold-light); font-style: italic; font-family: var(--ff-body); font-weight: 600; max-width: 480px; }
+  .story-body{ margin-top: 20px; color: rgba(255,255,255,0.78); font-size: 1.05rem; max-width: 500px; }
+  .story-body p + p{ margin-top: 14px; }
+  .story-tags{ margin-top: 30px; display:flex; flex-wrap:wrap; gap: 10px; }
+  .story-tags span{ border: 1px solid rgba(255,255,255,0.28); padding: 8px 16px; border-radius: 999px; font-size: 0.82rem; font-weight:600; color: rgba(255,255,255,0.85); }
+  .story-art{ position:relative; }
+  .story-art img{ width:100%; height: 460px; object-fit:cover; border-radius: var(--radius-m); }
+  .story-art .frame{
+    position:absolute; top: -18px; left: -18px; width: 100%; height:100%;
+    border: 2px solid var(--gold); border-radius: var(--radius-m); z-index:-1;
+  }
+  @media (max-width: 900px){
+    .story-grid{ grid-template-columns: 1fr; }
+    .story-art{ order:-1; }
+    .story-art img{ height: 320px; }
+  }
+
+  /* ================= WHY (ticket list) ================= */
+  .why{ background: var(--cream); }
+  .why-grid{ display:grid; grid-template-columns: repeat(2,1fr); gap: 22px; }
+  .ticket{
+    background: var(--paper); border-radius: var(--radius-m);
+    padding: 26px 26px 24px; position:relative;
+    border-top: 3px dashed var(--line);
+  }
+  .ticket .mark{ width: 34px; height: 8px; background: var(--gold); border-radius: 4px; margin-bottom: 16px; }
+  .ticket h3{ font-size: 1.4rem; font-family: var(--ff-body); font-weight:800; color: var(--ink); }
+  .ticket p{ margin-top: 10px; color: var(--ink-soft); font-size: 0.98rem; }
+  @media (max-width: 760px){ .why-grid{ grid-template-columns: 1fr; } }
+
+  /* ================= FAN FAVOURITES ================= */
+  .favourites{ background: var(--paper); }
+  .fav-grid{ display:grid; grid-template-columns: repeat(3,1fr); gap: 26px; }
+  .fav-card{ background: var(--cream); border-radius: var(--radius-m); overflow:hidden; box-shadow: 0 16px 30px -22px rgba(32,20,9,0.4); }
+  .fav-img{ height: 230px; overflow:hidden; }
+  .fav-img img{ width:100%; height:100%; object-fit:cover; transition: transform .5s ease; }
+  .fav-card:hover .fav-img img{ transform: scale(1.06); }
+  .fav-body{ padding: 22px 22px 24px; }
+  .fav-body h3{ font-size: 1.5rem; font-family: var(--ff-body); font-weight:800; color: var(--ink); }
+  .fav-body p{ margin-top: 8px; color: var(--ink-soft); font-size: 0.95rem; }
+  .fav-foot{ margin-top: 18px; display:flex; align-items:center; justify-content:space-between; }
+  .fav-price{ font-weight: 800; color: var(--red); }
+  @media (max-width: 980px){ .fav-grid{ grid-template-columns: repeat(2,1fr); } }
+  @media (max-width: 620px){ .fav-grid{ grid-template-columns: 1fr; } }
+
+  /* ================= GALLERY ================= */
+  .gallery{ background: var(--charcoal); }
+  .gallery .section-head p{ color: rgba(255,255,255,0.68); }
+  .gallery .section-head h2{ color:#fff; }
+  .masonry{ column-count: 3; column-gap: 18px; }
+  .masonry img{ width:100%; border-radius: var(--radius-m); margin-bottom: 18px; display:block; transition: transform .5s ease, filter .5s ease; }
+  .masonry a{ display:block; break-inside: avoid; overflow:hidden; border-radius: var(--radius-m); }
+  .masonry a:hover img{ transform: scale(1.05); filter: brightness(1.05); }
+  @media (max-width: 900px){ .masonry{ column-count: 2; } }
+  @media (max-width: 560px){ .masonry{ column-count: 1; } }
+
+  /* ================= REVIEWS ================= */
+  .reviews{ background: var(--cream); }
+  .reviews-top{ display:flex; align-items:center; gap: 26px; flex-wrap:wrap; margin-bottom: 46px; }
+  .review-score{ display:flex; align-items:center; gap: 16px; }
+  .review-score .big{ font-family: var(--ff-display); font-size: 3.4rem; color: var(--red); line-height:1; }
+  .review-score .meta{ font-size: 0.92rem; color: var(--ink-soft); }
+  .review-score .stars{ color: var(--gold); font-size: 1.1rem; letter-spacing: 2px; }
+  .review-grid{ display:grid; grid-template-columns: repeat(3,1fr); gap: 22px; }
+  .review-card{ background: var(--paper); border-radius: var(--radius-m); padding: 26px; box-shadow: 0 14px 26px -20px rgba(32,20,9,0.4); }
+  .review-card .stars{ color: var(--gold); letter-spacing: 2px; margin-bottom: 14px; display:block; }
+  .review-card p{ color: var(--ink); font-size: 1rem; }
+  .review-card .who{ margin-top: 16px; font-size: 0.85rem; color: var(--ink-soft); font-weight:600; }
+  @media (max-width: 900px){ .review-grid{ grid-template-columns: 1fr; } }
+
+  /* ================= ORDER ================= */
+  .order{ background: var(--red); color:#fff; }
+  .order-grid{ display:flex; align-items:center; justify-content:space-between; gap: 40px; flex-wrap:wrap; }
+  .order h2{ color:#fff; font-size: clamp(2.2rem, 5vw, 3.2rem); }
+  .order p{ margin-top: 14px; color: rgba(255,255,255,0.85); font-size: 1.1rem; }
+  .order-actions{ display:flex; gap: 16px; flex-wrap:wrap; }
+
+  /* ================= LOCATION ================= */
+  .location{ background: var(--paper); }
+  .loc-grid{ display:grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: stretch; }
+  .loc-card{ background: var(--cream); border-radius: var(--radius-m); padding: 34px; display:flex; flex-direction:column; justify-content:space-between; }
+  .loc-card h3{ font-family: var(--ff-body); font-weight:800; font-size: 1.6rem; }
+  .loc-line{ margin-top: 18px; color: var(--ink-soft); font-size: 1.02rem; }
+  .loc-status{ margin-top: 22px; display:flex; align-items:center; gap:10px; font-weight:700; }
+  .loc-status .pulse{ width:10px; height:10px; border-radius:50%; background:#2f9e57; box-shadow: 0 0 0 4px rgba(47,158,87,0.2); }
+  .loc-hours{ margin-top: 6px; color: var(--ink-soft); font-size: 0.95rem; }
+  .loc-actions{ margin-top: 28px; display:flex; flex-wrap:wrap; gap: 14px; }
+  .map-frame{ border-radius: var(--radius-m); overflow:hidden; min-height: 340px; border: none; }
+  .map-frame iframe{ width:100%; height:100%; min-height: 340px; border:0; display:block; }
+  @media (max-width: 900px){ .loc-grid{ grid-template-columns: 1fr; } }
+
+  /* ================= FINAL CTA ================= */
+  .final-cta{
+    position:relative; color:#fff; text-align:center; padding: 130px 0;
+    background: linear-gradient(rgba(15,9,5,0.72), rgba(15,9,5,0.82)), url('https://images.unsplash.com/photo-1572802419224-296b0aeee0d9?auto=format&fit=crop&w=1800&q=70') center/cover no-repeat;
+  }
+  .final-cta h2{ color:#fff; font-size: clamp(2.6rem, 7vw, 4.6rem); }
+  .final-cta p{ margin-top: 18px; color: rgba(255,255,255,0.82); font-size: 1.15rem; }
+  .final-actions{ margin-top: 34px; display:flex; justify-content:center; gap: 16px; flex-wrap:wrap; }
+
+  /* ================= FOOTER ================= */
+  .site-footer{ background: var(--charcoal-2); color: rgba(255,255,255,0.78); padding: 70px 0 30px; }
+  .footer-grid{ display:grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 40px; }
+  .footer-brand{ font-family: var(--ff-display); font-size: 2rem; color:#fff; }
+  .footer-brand-desc{ margin-top: 14px; font-size: 0.92rem; max-width: 260px; color: rgba(255,255,255,0.6); }
+  .footer-col h4{ font-family: var(--ff-body); font-weight:700; color:#fff; font-size: 0.95rem; margin-bottom: 16px; }
+  .footer-col li{ margin-bottom: 10px; font-size: 0.92rem; }
+  .footer-col a{ text-decoration:none; color: rgba(255,255,255,0.7); }
+  .footer-col a:hover{ color: var(--gold); }
+  .footer-social{ display:flex; gap: 12px; margin-top: 6px; }
+  .footer-social a{ width: 36px; height:36px; border-radius:50%; border: 1px solid rgba(255,255,255,0.25); display:flex; align-items:center; justify-content:center; font-size:0.8rem; }
+  .footer-bottom{ margin-top: 54px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.12); display:flex; justify-content:space-between; flex-wrap:wrap; gap: 12px; font-size: 0.82rem; color: rgba(255,255,255,0.5); }
+  @media (max-width: 800px){ .footer-grid{ grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 480px){ .footer-grid{ grid-template-columns: 1fr; } }
+
+  /* ================= MOBILE ORDER BAR ================= */
+  .mobile-order-bar{
+    position: fixed; left: 16px; right: 16px; bottom: 16px; z-index: 150;
+    background: var(--red); color:#fff; border-radius: 999px;
+    display:none; align-items:center; justify-content: space-between;
+    padding: 12px 10px 12px 20px; box-shadow: 0 16px 30px -10px rgba(0,0,0,0.5);
+  }
+  .mobile-order-bar span{ font-weight:700; font-size: 0.92rem; }
+  .mobile-order-bar a{ background: var(--gold); color: var(--charcoal); font-weight:800; padding: 10px 18px; border-radius: 999px; text-decoration:none; font-size: 0.85rem; }
+  @media (max-width: 760px){ .mobile-order-bar{ display:flex; } body{ padding-bottom: 78px; } }
+
+  /* focus visibility */
+  a:focus-visible, button:focus-visible{ outline: 3px solid var(--gold); outline-offset: 2px; }
+</style>
+</head>
+<body>
+
+<!-- ================= NAV ================= -->
+<header class="nav" id="siteNav">
+  <div class="container nav-inner">
+    <a href="#home" class="brand">JOLLY'S</a>
+    <nav class="nav-links" aria-label="Primary">
+      <a class="nav-link" href="#home">Home</a>
+      <a class="nav-link" href="#menu">Our Menu</a>
+      <a class="nav-link" href="#why">Why Jolly's</a>
+      <a class="nav-link" href="#gallery">Gallery</a>
+      <a class="nav-link" href="#reviews">Reviews</a>
+      <a class="nav-link" href="#location">Location</a>
+      <a class="btn btn-primary btn-sm nav-cta" href="#order">Order Now</a>
+    </nav>
+    <button class="burger-icon" id="burgerBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobilePanel">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ================= MOBILE PANEL ================= -->
+<div class="mobile-panel" id="mobilePanel">
+  <button class="mobile-close" id="mobileClose" aria-label="Close menu">&times;</button>
+  <a href="#home">Home</a>
+  <a href="#menu">Our Menu</a>
+  <a href="#why">Why Jolly's</a>
+  <a href="#gallery">Gallery</a>
+  <a href="#reviews">Reviews</a>
+  <a href="#location">Location</a>
+  <a class="btn btn-gold" href="#order">Order Now</a>
+</div>
+
+<main>
+
+<!-- ================= HERO ================= -->
+<section class="hero" id="home">
+  <div class="container hero-grid">
+    <div>
+      <div class="hero-kicker"><span class="dot"></span> Smash burgers &amp; cafe bites in Kalyan</div>
+      <h1>Big Bites.<br><span class="line2">Bigger Cravings.</span></h1>
+      <p class="hero-copy">From loaded burgers and wraps to cheesy favourites and sweet cravings — Jolly's brings bold flavours to Kalyan, right off Birla College Road.</p>
+      <div class="hero-actions">
+        <a href="#order" class="btn btn-primary">Order Now</a>
+        <a href="#menu" class="btn btn-ghost-light">Explore Menu</a>
+      </div>
+      <div class="hero-trust">
+        <div class="rating"><span class="stars">★★★★★</span> 4.6 on Google</div>
+        <div class="sep"></div>
+        <div class="loc-badge">📍 West Khadakpada, Kalyan</div>
+      </div>
+    </div>
+    <div class="hero-art">
+      <div class="plate"></div>
+      <img class="main-food" src="https://images.unsplash.com/photo-1572802419224-296b0aeee0d9?auto=format&fit=crop&w=1200&q=80" alt="A juicy double smash cheeseburger with melted cheese and fresh toppings">
+      <div class="hero-tag">Open till 12:30 AM</div>
+      <div class="hero-badge">
+        <div class="num">88+</div>
+        <div class="txt">Google reviews from happy regulars</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= STATS STRIP ================= -->
+<section class="stats-strip">
+  <div class="container stats-inner">
+    <div class="stat-cell"><div class="num">4.6★</div><div class="lbl">Google Rating</div></div>
+    <div class="stat-cell"><div class="num">88+</div><div class="lbl">Google Reviews</div></div>
+    <div class="stat-cell"><div class="num">₹200–400</div><div class="lbl">Average for Two</div></div>
+    <div class="stat-cell"><div class="num">12:30 AM</div><div class="lbl">Open Late, Daily</div></div>
+  </div>
+</section>
+
+<!-- ================= FEATURED CRAVINGS ================= -->
+<section class="cravings section-pad" id="menu">
+  <div class="container">
+    <div class="section-head reveal">
+      <h2>Made for Cravings.</h2>
+      <p>A menu built around the food Kalyan actually shows up for — smashed hard, stacked high, and never boring.</p>
+    </div>
+
+    <div class="bento">
+      <a href="#favourites" class="craving-card c-large reveal">
+        <img src="https://images.unsplash.com/photo-1572802419224-296b0aeee0d9?auto=format&fit=crop&w=1000&q=75" alt="Smash burger with melted cheese">
+        <div class="craving-body">
+          <h3>Smash Burgers</h3>
+          <p>Thin, crisp-edged patties smashed hard and stacked with melty cheese.</p>
+          <span class="craving-cta">Explore Smash Burgers</span>
+        </div>
+      </a>
+
+      <a href="#favourites" class="craving-card c-med reveal">
+        <img src="https://images.unsplash.com/photo-1622816931574-4c027c474fb0?auto=format&fit=crop&w=800&q=75" alt="Loaded wrap cut in half">
+        <div class="craving-body">
+          <h3>Wraps</h3>
+          <p>Rolled tight, packed with flavour, gone before you know it.</p>
+        </div>
+      </a>
+
+      <a href="#favourites" class="craving-card c-small reveal">
+        <img src="https://images.unsplash.com/photo-1564849012987-56a988d14596?auto=format&fit=crop&w=700&q=75" alt="Veg mini burger platter">
+        <div class="craving-body">
+          <h3>Mini Burger Platters</h3>
+          <p>A whole spread of minis for the table to fight over.</p>
+        </div>
+      </a>
+
+      <a href="#favourites" class="craving-card c-small reveal">
+        <img src="https://images.unsplash.com/photo-1639744210631-209fce3e256c?auto=format&fit=crop&w=700&q=75" alt="Loaded cheese fries">
+        <div class="craving-body">
+          <h3>Loaded Fries</h3>
+          <p>Buried in cheese, because plain fries were never the plan.</p>
+        </div>
+      </a>
+
+      <a href="#favourites" class="craving-card c-med reveal">
+        <img src="https://images.unsplash.com/photo-1610900307019-ac7eb646aad4?auto=format&fit=crop&w=800&q=75" alt="Cheesy burger close up">
+        <div class="craving-body">
+          <h3>Cheesy Favourites</h3>
+          <p>For the table that orders extra cheese, every single time.</p>
+        </div>
+      </a>
+
+      <a href="#favourites" class="craving-card c-med reveal">
+        <img src="https://images.unsplash.com/photo-1534534622665-065d8ce6f9cc?auto=format&fit=crop&w=800&q=75" alt="Chocolate cheesecake slice">
+        <div class="craving-body">
+          <h3>Sweet Treats</h3>
+          <p>Cheesecake, and a reason to stay for one more round.</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= BRAND STORY ================= -->
+<section class="story section-pad">
+  <div class="container story-grid">
+    <div class="reveal">
+      <h2>Not Just<br>Another Bite.</h2>
+      <p class="story-lead">Good food has a way of bringing people together.</p>
+      <div class="story-body">
+        <p>At Jolly's, the idea is simple — serve food worth coming back for. It's where college days end and long conversations begin, where a quick bite turns into an hour with friends, and where the last order of the night still gets the same care as the first.</p>
+        <p>No fuss, no frills — just burgers, wraps and comfort food made for the way Kalyan actually eats: together, late, and a little hungrier than planned.</p>
+      </div>
+      <div class="story-tags">
+        <span>After-college hangouts</span>
+        <span>Late-night cravings</span>
+        <span>Food worth the trip</span>
+      </div>
+    </div>
+    <div class="story-art reveal">
+      <div class="frame"></div>
+      <img src="https://images.unsplash.com/photo-1610900307019-ac7eb646aad4?auto=format&fit=crop&w=1000&q=80" alt="Hands holding a loaded cheeseburger">
+    </div>
+  </div>
+</section>
+
+<!-- ================= WHY JOLLY'S ================= -->
+<section class="why section-pad" id="why">
+  <div class="container">
+    <div class="section-head reveal">
+      <h2>Why People Love Jolly's.</h2>
+      <p>No gimmicks — just the reasons regulars keep coming back on a weeknight.</p>
+    </div>
+    <div class="why-grid">
+      <div class="ticket reveal">
+        <div class="mark"></div>
+        <h3>Big, satisfying portions</h3>
+        <p>Plates built for people who came here hungry, not for a photo.</p>
+      </div>
+      <div class="ticket reveal">
+        <div class="mark"></div>
+        <h3>Burgers made for cravings</h3>
+        <p>Smashed, stacked, and finished with the sauces that make people order it again.</p>
+      </div>
+      <div class="ticket reveal">
+        <div class="mark"></div>
+        <h3>The perfect hangout spot</h3>
+        <p>Loud enough for a group, comfortable enough to stay past your order.</p>
+      </div>
+      <div class="ticket reveal">
+        <div class="mark"></div>
+        <h3>Affordable, every day</h3>
+        <p>Priced for a regular Tuesday, not just a special occasion.</p>
+      </div>
+      <div class="ticket reveal">
+        <div class="mark"></div>
+        <h3>Something for everyone</h3>
+        <p>Veg platters, wraps, cheesy sides and dessert — nobody leaves settling.</p>
+      </div>
+      <div class="ticket reveal">
+        <div class="mark"></div>
+        <h3>Open till 12:30 AM</h3>
+        <p>For the plans that only get made after 10.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FAN FAVOURITES ================= -->
+<section class="favourites section-pad" id="favourites">
+  <div class="container">
+    <div class="section-head reveal">
+      <h2>Fan Favourites.</h2>
+      <p>The dishes that show up in almost every Jolly's order — and most of the reviews.</p>
+    </div>
+    <div class="fav-grid">
+      <div class="fav-card reveal">
+        <div class="fav-img"><img src="https://images.unsplash.com/photo-1572802419224-296b0aeee0d9?auto=format&fit=crop&w=700&q=75" alt="Smash burger"></div>
+        <div class="fav-body">
+          <h3>Smash Burger</h3>
+          <p>Crisp-edged patty, melted cheese, and a sauce people ask about by name.</p>
+          <div class="fav-foot"><span class="fav-price">Starting from ₹___</span><a class="btn btn-primary btn-sm" href="#order">Order</a></div>
+        </div>
+      </div>
+      <div class="fav-card reveal">
+        <div class="fav-img"><img src="https://images.unsplash.com/photo-1564849012987-56a988d14596?auto=format&fit=crop&w=700&q=75" alt="Veg mini burger platter"></div>
+        <div class="fav-body">
+          <h3>Veg Mini Burger Platter</h3>
+          <p>A variety platter built for sharing — fresh, filling and full of flavour.</p>
+          <div class="fav-foot"><span class="fav-price">Starting from ₹___</span><a class="btn btn-primary btn-sm" href="#order">Order</a></div>
+        </div>
+      </div>
+      <div class="fav-card reveal">
+        <div class="fav-img"><img src="https://images.unsplash.com/photo-1622816931574-4c027c474fb0?auto=format&fit=crop&w=700&q=75" alt="Loaded wrap"></div>
+        <div class="fav-body">
+          <h3>Wraps</h3>
+          <p>Rolled tight and packed with filling — the go-to for a fast, full meal.</p>
+          <div class="fav-foot"><span class="fav-price">Starting from ₹___</span><a class="btn btn-primary btn-sm" href="#order">Order</a></div>
+        </div>
+      </div>
+      <div class="fav-card reveal">
+        <div class="fav-img"><img src="https://images.unsplash.com/photo-1639744210631-209fce3e256c?auto=format&fit=crop&w=700&q=75" alt="Loaded cheese fries"></div>
+        <div class="fav-body">
+          <h3>Piri Piri &amp; Loaded Fries</h3>
+          <p>Crisp, hot and finished with a proper amount of cheese.</p>
+          <div class="fav-foot"><span class="fav-price">Starting from ₹___</span><a class="btn btn-primary btn-sm" href="#order">Order</a></div>
+        </div>
+      </div>
+      <div class="fav-card reveal">
+        <div class="fav-img"><img src="https://images.unsplash.com/photo-1534534622665-065d8ce6f9cc?auto=format&fit=crop&w=700&q=75" alt="Chocolate cheesecake"></div>
+        <div class="fav-body">
+          <h3>Cheesecake</h3>
+          <p>Rich, cold and the reason half the tables order dessert first.</p>
+          <div class="fav-foot"><span class="fav-price">Starting from ₹___</span><a class="btn btn-primary btn-sm" href="#order">Order</a></div>
+        </div>
+      </div>
+      <div class="fav-card reveal">
+        <div class="fav-img"><img src="https://images.unsplash.com/photo-1610900307019-ac7eb646aad4?auto=format&fit=crop&w=700&q=75" alt="Cheesy burger"></div>
+        <div class="fav-body">
+          <h3>Desserts &amp; Sweet Bites</h3>
+          <p>Something sweet to close out the order, every single time.</p>
+          <div class="fav-foot"><span class="fav-price">Starting from ₹___</span><a class="btn btn-primary btn-sm" href="#order">Order</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= GALLERY ================= -->
+<section class="gallery section-pad" id="gallery">
+  <div class="container">
+    <div class="section-head reveal">
+      <h2>Inside Jolly's.</h2>
+      <p>A quick look at what's coming out of the kitchen — and what usually disappears first.</p>
+    </div>
+    <div class="masonry">
+      <a href="#" tabindex="-1"><img src="https://images.unsplash.com/photo-1572802419224-296b0aeee0d9?auto=format&fit=crop&w=700&q=75" alt="Smash burger with cheese"></a>
+      <a href="#" tabindex="-1"><img src="https://images.unsplash.com/photo-1639744210631-209fce3e256c?auto=format&fit=crop&w=700&q=75" alt="Loaded fries"></a>
+      <a href="#" tabindex="-1"><img src="https://images.unsplash.com/photo-1534534622665-065d8ce6f9cc?auto=format&fit=crop&w=700&q=75" alt="Chocolate cheesecake"></a>
+      <a href="#" tabindex="-1"><img src="https://images.unsplash.com/photo-1610900307019-ac7eb646aad4?auto=format&fit=crop&w=700&q=75" alt="Burger held in hand"></a>
+      <a href="#" tabindex="-1"><img src="https://images.unsplash.com/photo-1622816931574-4c027c474fb0?auto=format&fit=crop&w=700&q=75" alt="Loaded wrap"></a>
+      <a href="#" tabindex="-1"><img src="https://images.unsplash.com/photo-1564849012987-56a988d14596?auto=format&fit=crop&w=700&q=75" alt="Veg burger platter"></a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= REVIEWS ================= -->
+<section class="reviews section-pad" id="reviews">
+  <div class="container">
+    <div class="reviews-top reveal">
+      <div class="review-score">
+        <div class="big">4.6</div>
+        <div class="meta"><span class="stars">★★★★★</span><br>Based on 88+ Google Reviews</div>
+      </div>
+      <a href="https://www.google.com/search?q=Jolly%27s+Kalyan" target="_blank" rel="noopener" class="btn btn-ghost btn-sm">Read More Reviews on Google</a>
+    </div>
+    <div class="section-head reveal">
+      <h2>Don't Just Take Our Word for It.</h2>
+      <p>A few of the things regulars keep saying — paraphrased from Google reviews.</p>
+    </div>
+    <div class="review-grid">
+      <div class="review-card reveal">
+        <span class="stars">★★★★★</span>
+        <p>Sample review: "The burgers here are seriously good — well balanced, generous, and worth the visit."</p>
+        <div class="who">Google Reviewer · Local Guide</div>
+      </div>
+      <div class="review-card reveal">
+        <span class="stars">★★★★★</span>
+        <p>Sample review: "Tried the mini platter on a quiet weekday — fresh, filling, and full of flavour."</p>
+        <div class="who">Google Reviewer · Local Guide</div>
+      </div>
+      <div class="review-card reveal">
+        <span class="stars">★★★★★</span>
+        <p>Sample review: "Fresh food at genuinely affordable prices. The smash burger and cheesecake are a must."</p>
+        <div class="who">Google Reviewer · Local Guide</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ORDER ONLINE ================= -->
+<section class="order section-pad" id="order">
+  <div class="container order-grid">
+    <div class="reveal">
+      <h2>Craving Something Jolly?</h2>
+      <p>Your favourites are just a few taps away.</p>
+    </div>
+    <div class="order-actions reveal">
+      <a href="https://www.swiggy.com" target="_blank" rel="noopener" class="btn btn-gold">Order on Swiggy</a>
+      <a href="https://www.google.com/maps/dir/?api=1&destination=Jolly%27s+Kalyan+Birla+College+Road+Khadakpada+Kalyan+Maharashtra+421301" target="_blank" rel="noopener" class="btn btn-ghost-light">Visit Us</a>
+      <a href="tel:06001005800" class="btn btn-ghost-light">Call Us</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= LOCATION ================= -->
+<section class="location section-pad" id="location">
+  <div class="container">
+    <div class="section-head reveal">
+      <h2>Find Jolly's Kalyan.</h2>
+      <p>Right on Birla College Road, near Sky Deck — easy to spot, easy to get to.</p>
+    </div>
+    <div class="loc-grid">
+      <div class="loc-card reveal">
+        <div>
+          <h3>Jolly's Kalyan</h3>
+          <p class="loc-line">Birla College Road, near Sky Deck,<br>West Khadakpada,<br>Kalyan, Maharashtra 421301</p>
+          <div class="loc-status"><span class="pulse"></span> Open now</div>
+          <p class="loc-hours">Daily · Closes around 12:30 AM</p>
+        </div>
+        <div class="loc-actions">
+          <a href="https://www.google.com/maps/dir/?api=1&destination=Jolly%27s+Kalyan+Birla+College+Road+Khadakpada+Kalyan+Maharashtra+421301" target="_blank" rel="noopener" class="btn btn-primary">Get Directions</a>
+          <a href="tel:06001005800" class="btn btn-ghost">Call Jolly's</a>
+        </div>
+      </div>
+      <div class="map-frame reveal">
+        <iframe title="Map to Jolly's Kalyan" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+          src="https://www.google.com/maps?q=Jolly%27s+Kalyan+Birla+College+Road+near+Sky+Deck+West+Khadakpada+Kalyan+Maharashtra+421301&output=embed">
+        </iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FINAL CTA ================= -->
+<section class="final-cta">
+  <div class="container reveal">
+    <h2>Come Hungry.<br>Leave Jolly.</h2>
+    <p>Kalyan's late-night favourite for smash burgers, wraps and comfort food.</p>
+    <div class="final-actions">
+      <a href="#menu" class="btn btn-ghost-light">Explore the Menu</a>
+      <a href="#order" class="btn btn-gold">Order Now</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div>
+      <div class="footer-brand">JOLLY'S</div>
+      <p class="footer-brand-desc">Smash burgers, wraps and cafe-style comfort food on Birla College Road, Kalyan. Rated 4.6★ by 88+ regulars.</p>
+      <div class="footer-social">
+        <a href="#" aria-label="Instagram">IG</a>
+        <a href="#" aria-label="Facebook">FB</a>
+        <a href="https://www.swiggy.com" target="_blank" rel="noopener" aria-label="Swiggy">SW</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Explore</h4>
+      <ul>
+        <li><a href="#menu">Our Menu</a></li>
+        <li><a href="#why">Why Jolly's</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Visit</h4>
+      <ul>
+        <li><a href="#location">Birla College Road, Kalyan</a></li>
+        <li><a href="tel:06001005800">060010 05800</a></li>
+        <li><a href="#location">Open till 12:30 AM</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Order</h4>
+      <ul>
+        <li><a href="https://www.swiggy.com" target="_blank" rel="noopener">Order on Swiggy</a></li>
+        <li><a href="https://www.google.com/search?q=Jolly%27s+Kalyan" target="_blank" rel="noopener">4.6★ on Google</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <span>© 2026 Jolly's Kalyan. All rights reserved.</span>
+    <span>Birla College Road, near Sky Deck, West Khadakpada, Kalyan, Maharashtra 421301</span>
+  </div>
+</footer>
+
+<!-- ================= MOBILE ORDER BAR ================= -->
+<div class="mobile-order-bar">
+  <span>Craving something jolly?</span>
+  <a href="#order">Order Now</a>
+</div>
+
+<script>
+  // Sticky nav background on scroll
+  const nav = document.getElementById('siteNav');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 40) nav.classList.add('scrolled');
+    else nav.classList.remove('scrolled');
+  }, { passive: true });
+
+  // Mobile menu
+  const burgerBtn = document.getElementById('burgerBtn');
+  const mobilePanel = document.getElementById('mobilePanel');
+  const mobileClose = document.getElementById('mobileClose');
+  function openPanel(){ mobilePanel.classList.add('open'); burgerBtn.setAttribute('aria-expanded','true'); document.body.style.overflow='hidden'; }
+  function closePanel(){ mobilePanel.classList.remove('open'); burgerBtn.setAttribute('aria-expanded','false'); document.body.style.overflow=''; }
+  burgerBtn.addEventListener('click', openPanel);
+  mobileClose.addEventListener('click', closePanel);
+  mobilePanel.querySelectorAll('a').forEach(a => a.addEventListener('click', closePanel));
+
+  // Scroll reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+    revealEls.forEach(el => io.observe(el));
+  } else {
+    revealEls.forEach(el => el.classList.add('is-visible'));
+  }
+</script>
+
+</body>
+</html>
