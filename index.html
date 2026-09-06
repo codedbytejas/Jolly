@@ -2,7 +2,7 @@
 <html lang="en" data-theme="dark">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Jolly's Kalyan — Smash Burgers, Wraps, Loaded Fries &amp; Late Night Cravings</title>
 <meta name="description" content="Kalyan's favourite smash burgers, loaded cheese fries, wraps and desserts on Birla College Road, Khadakpada. Rated 4.6★. Open till 12:30 AM. Order online or visit.">
 <meta name="keywords" content="Jolly's Kalyan, smash burger kalyan, burgers in khadakpada, fast food kalyan, late night food kalyan, birla college road cafe">
@@ -100,20 +100,45 @@
   }
 
   /* RESET & BASE */
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
   body {
     font-family: var(--ff-body);
     background-color: var(--bg-main);
     color: var(--text-main);
     line-height: 1.6;
-    overflow-x: hidden;
-    transition: background-color 0.4s ease, color 0.4s ease;
+    transition: background-color 0.3s ease, color 0.3s ease;
     -webkit-font-smoothing: antialiased;
+    padding-bottom: calc(88px + env(safe-area-inset-bottom, 0px));
   }
-  img { max-width: 100%; height: auto; display: block; }
-  a { color: inherit; text-decoration: none; }
-  button { font-family: inherit; cursor: pointer; border: none; background: none; }
+  body.modal-open {
+    overflow: hidden !important;
+    touch-action: none;
+  }
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+  a {
+    color: inherit;
+    text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+  button {
+    font-family: inherit;
+    cursor: pointer;
+    border: none;
+    background: none;
+    -webkit-tap-highlight-color: transparent;
+  }
   ul { list-style: none; }
 
   .container {
@@ -128,11 +153,12 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 16px;
-    height: 16px;
+    width: 18px;
+    height: 18px;
     border-radius: 4px;
     background: transparent;
     position: relative;
+    flex-shrink: 0;
   }
   .badge-veg { border: 1.5px solid var(--veg-color); }
   .badge-veg::after {
@@ -162,12 +188,13 @@
     font-weight: 700;
     letter-spacing: 0.02em;
     text-transform: uppercase;
+    white-space: nowrap;
   }
   .tag-fire { background: rgba(230, 25, 55, 0.15); color: #ff526c; border: 1px solid rgba(230, 25, 55, 0.3); }
   .tag-gold { background: rgba(245, 158, 11, 0.15); color: var(--gold); border: 1px solid rgba(245, 158, 11, 0.3); }
   .tag-green { background: rgba(34, 197, 94, 0.15); color: #4ade80; border: 1px solid rgba(34, 197, 94, 0.3); }
 
-  /* BUTTON STYLES */
+  /* BUTTON STYLES (MIN 44PX TAP TARGET) */
   .btn {
     display: inline-flex;
     align-items: center;
@@ -175,15 +202,16 @@
     gap: 10px;
     font-weight: 700;
     font-size: 0.95rem;
-    padding: 13px 26px;
+    padding: 12px 24px;
+    min-height: 44px;
     border-radius: var(--radius-full);
-    transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
     position: relative;
     overflow: hidden;
     white-space: nowrap;
     cursor: pointer;
   }
-  .btn svg { width: 18px; height: 18px; fill: currentColor; }
+  .btn svg { width: 18px; height: 18px; fill: currentColor; flex-shrink: 0; }
   
   .btn-primary {
     background: linear-gradient(135deg, #e61937 0%, #b80d26 100%);
@@ -230,12 +258,21 @@
     box-shadow: 0 8px 25px -6px rgba(37, 211, 102, 0.5);
   }
 
-  .btn-sm { padding: 9px 18px; font-size: 0.85rem; }
-  .btn-xs { padding: 6px 12px; font-size: 0.78rem; border-radius: var(--radius-sm); }
+  .btn-sm {
+    padding: 8px 16px;
+    font-size: 0.85rem;
+    min-height: 40px;
+  }
+  .btn-xs {
+    padding: 6px 12px;
+    font-size: 0.78rem;
+    border-radius: var(--radius-sm);
+    min-height: 36px;
+  }
 
   /* SECTION HEADERS */
-  .section-pad { padding: 90px 0; }
-  .section-head { margin-bottom: 45px; }
+  .section-pad { padding: 80px 0; }
+  .section-head { margin-bottom: 40px; }
   .section-head.center { text-align: center; max-width: 680px; margin-left: auto; margin-right: auto; }
   .section-eyebrow {
     font-size: 0.85rem;
@@ -246,24 +283,26 @@
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    margin-bottom: 12px;
+    margin-bottom: 10px;
   }
   .section-eyebrow::before {
     content: "";
     width: 20px;
     height: 2px;
     background: var(--gold);
+    flex-shrink: 0;
   }
   .section-head h2 {
     font-family: var(--ff-display);
-    font-size: clamp(2.4rem, 5vw, 3.8rem);
+    font-size: clamp(2.2rem, 5.5vw, 3.8rem);
     letter-spacing: 0.02em;
     line-height: 0.95;
     color: var(--text-main);
+    overflow-wrap: break-word;
   }
   .section-head p {
-    margin-top: 14px;
-    font-size: 1.05rem;
+    margin-top: 12px;
+    font-size: 1.02rem;
     color: var(--text-muted);
   }
 
@@ -274,34 +313,36 @@
     left: 0;
     right: 0;
     z-index: 500;
-    padding: 18px 0;
-    transition: all 0.35s ease;
+    padding: 16px 0;
+    transition: all 0.3s ease;
   }
   .nav.scrolled {
-    background: rgba(12, 9, 8, 0.88);
+    background: rgba(12, 9, 8, 0.92);
     backdrop-filter: blur(18px);
     -webkit-backdrop-filter: blur(18px);
-    padding: 12px 0;
+    padding: 10px 0;
     border-bottom: 1px solid var(--border);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
   }
   [data-theme="light"] .nav.scrolled {
-    background: rgba(247, 242, 233, 0.92);
+    background: rgba(247, 242, 233, 0.95);
   }
   .nav-inner {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 12px;
   }
   .brand-wrap {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 10px;
     text-decoration: none;
+    flex-shrink: 0;
   }
   .brand-logo {
     font-family: var(--ff-display);
-    font-size: 2.2rem;
+    font-size: 2.1rem;
     letter-spacing: 0.04em;
     color: #fff;
     line-height: 1;
@@ -313,7 +354,7 @@
   [data-theme="light"] .brand-logo { color: #1c140e; }
   
   .brand-loc {
-    font-size: 0.72rem;
+    font-size: 0.7rem;
     font-weight: 700;
     background: var(--primary);
     color: #fff;
@@ -326,7 +367,7 @@
   .nav-links {
     display: flex;
     align-items: center;
-    gap: 28px;
+    gap: 24px;
   }
   .nav-link {
     font-size: 0.92rem;
@@ -335,6 +376,9 @@
     transition: color 0.2s ease;
     position: relative;
     padding: 6px 0;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
   }
   .nav-link:hover, .nav-link.active {
     color: var(--text-main);
@@ -342,7 +386,7 @@
   .nav-link::after {
     content: "";
     position: absolute;
-    bottom: 0;
+    bottom: 4px;
     left: 0;
     width: 0;
     height: 2px;
@@ -354,13 +398,15 @@
   .nav-right {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 10px;
   }
 
-  /* Theme Toggle */
+  /* Theme Toggle (Min 44x44px target) */
   .theme-toggle-btn {
-    width: 40px;
-    height: 40px;
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    min-height: 44px;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -374,7 +420,7 @@
     background: rgba(255, 255, 255, 0.15);
     transform: scale(1.05);
   }
-  .theme-toggle-btn svg { width: 18px; height: 18px; }
+  .theme-toggle-btn svg { width: 20px; height: 20px; }
 
   /* Cart Trigger Pill */
   .cart-trigger-btn {
@@ -384,7 +430,8 @@
     background: rgba(230, 25, 55, 0.15);
     border: 1px solid rgba(230, 25, 55, 0.35);
     color: #ff526c;
-    padding: 8px 16px;
+    padding: 6px 14px;
+    min-height: 44px;
     border-radius: var(--radius-full);
     font-weight: 700;
     font-size: 0.88rem;
@@ -393,14 +440,13 @@
   .cart-trigger-btn:hover {
     background: var(--primary);
     color: #fff;
-    transform: translateY(-2px);
     box-shadow: 0 8px 20px -4px rgba(230, 25, 55, 0.5);
   }
   .cart-badge-count {
     background: var(--gold);
     color: #0c0908;
-    width: 20px;
-    height: 20px;
+    width: 22px;
+    height: 22px;
     border-radius: 50%;
     display: inline-flex;
     align-items: center;
@@ -409,29 +455,117 @@
     font-weight: 800;
   }
 
+  /* Hamburger Menu Button (Min 44x44px target) */
   .burger-btn {
     display: none;
     flex-direction: column;
     gap: 5px;
-    width: 36px;
-    height: 36px;
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    min-height: 44px;
     justify-content: center;
     align-items: center;
     background: rgba(255, 255, 255, 0.08);
-    border-radius: 8px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
   }
   .burger-btn span {
     display: block;
-    width: 20px;
+    width: 22px;
     height: 2px;
     background: var(--text-main);
     transition: 0.3s;
   }
 
+  /* Slide-out Mobile Navigation Drawer */
+  .mobile-nav-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(10px);
+    z-index: 600;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.35s ease;
+  }
+  .mobile-nav-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .mobile-nav-drawer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: min(320px, 85vw);
+    background: var(--bg-surface);
+    border-right: 1px solid var(--border);
+    z-index: 601;
+    padding: 24px 20px;
+    display: flex;
+    flex-direction: column;
+    transform: translateX(-100%);
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    overflow-y: auto;
+  }
+  .mobile-nav-overlay.active .mobile-nav-drawer {
+    transform: translateX(0);
+  }
+  .mobile-nav-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border);
+  }
+  .mobile-nav-close {
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    min-height: 44px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--text-main);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+  }
+  .mobile-nav-links {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 24px;
+  }
+  .mobile-nav-links a {
+    font-family: var(--ff-display);
+    font-size: 1.7rem;
+    color: var(--text-main);
+    padding: 10px 12px;
+    border-radius: var(--radius-sm);
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+    transition: background 0.2s, color 0.2s;
+  }
+  .mobile-nav-links a:hover, .mobile-nav-links a:active {
+    background: rgba(230, 25, 55, 0.15);
+    color: var(--primary);
+  }
+  .mobile-nav-footer {
+    margin-top: auto;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
   /* ================= HERO SECTION ================= */
   .hero {
     position: relative;
-    padding: 160px 0 100px;
+    padding: 140px 0 80px;
     background: radial-gradient(circle at 80% 20%, rgba(230, 25, 55, 0.22) 0%, transparent 50%),
                 radial-gradient(circle at 10% 80%, rgba(245, 158, 11, 0.12) 0%, transparent 40%);
     overflow: hidden;
@@ -456,7 +590,8 @@
     border-radius: var(--radius-full);
     font-size: 0.82rem;
     font-weight: 600;
-    margin-bottom: 22px;
+    margin-bottom: 20px;
+    max-width: 100%;
   }
   .status-dot {
     width: 8px;
@@ -465,6 +600,7 @@
     background: #22c55e;
     box-shadow: 0 0 10px #22c55e;
     animation: pulseGlow 2s infinite;
+    flex-shrink: 0;
   }
   @keyframes pulseGlow {
     0%, 100% { opacity: 1; transform: scale(1); }
@@ -473,10 +609,12 @@
 
   .hero h1 {
     font-family: var(--ff-display);
-    font-size: clamp(3.2rem, 7.5vw, 5.8rem);
-    line-height: 0.92;
-    letter-spacing: 0.02em;
+    font-size: clamp(2.3rem, 7vw, 5.5rem);
+    line-height: 0.95;
+    letter-spacing: 0.01em;
     color: var(--text-main);
+    overflow-wrap: break-word;
+    word-break: break-word;
   }
   .hero h1 .highlight-gold {
     color: var(--gold);
@@ -487,26 +625,26 @@
   }
 
   .hero-desc {
-    margin-top: 24px;
-    font-size: 1.15rem;
+    margin-top: 20px;
+    font-size: 1.1rem;
     color: var(--text-muted);
     max-width: 520px;
   }
 
   .hero-cta-group {
-    margin-top: 36px;
+    margin-top: 32px;
     display: flex;
     flex-wrap: wrap;
-    gap: 16px;
+    gap: 14px;
   }
 
   .hero-social-proof {
-    margin-top: 45px;
+    margin-top: 36px;
     display: flex;
     align-items: center;
-    gap: 24px;
+    gap: 20px;
     flex-wrap: wrap;
-    padding-top: 28px;
+    padding-top: 24px;
     border-top: 1px solid var(--border);
   }
   .hero-rating-box {
@@ -536,12 +674,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
   }
   .hero-art-card {
     position: relative;
     width: 100%;
-    max-width: 460px;
-    height: 480px;
+    max-width: 440px;
+    height: 460px;
     border-radius: var(--radius-lg);
     background: linear-gradient(145deg, rgba(230, 25, 55, 0.15) 0%, rgba(20, 15, 12, 0.6) 100%);
     border: 1px solid var(--border);
@@ -549,7 +688,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow: visible;
     transform-style: preserve-3d;
     transition: transform 0.15s ease-out;
   }
@@ -574,58 +712,60 @@
   /* Floating Badges */
   .floating-badge {
     position: absolute;
-    background: rgba(18, 14, 11, 0.88);
+    background: rgba(18, 14, 11, 0.92);
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
     border: 1px solid var(--border);
     border-radius: var(--radius-md);
-    padding: 12px 18px;
+    padding: 10px 16px;
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 10px;
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
     z-index: 10;
     transform: translateZ(50px);
     animation: floatAnim 4s ease-in-out infinite alternate;
+    max-width: 220px;
   }
   [data-theme="light"] .floating-badge {
-    background: rgba(255, 255, 255, 0.92);
+    background: rgba(255, 255, 255, 0.95);
   }
   .badge-top-right {
-    top: -15px;
-    right: -20px;
+    top: -10px;
+    right: -10px;
     animation-delay: -1s;
   }
   .badge-bottom-left {
-    bottom: -20px;
-    left: -20px;
+    bottom: -15px;
+    left: -10px;
     animation-delay: -2.5s;
   }
   @keyframes floatAnim {
     0% { transform: translateY(0) translateZ(50px); }
-    100% { transform: translateY(-12px) translateZ(50px); }
+    100% { transform: translateY(-10px) translateZ(50px); }
   }
 
   .badge-icon {
-    width: 38px;
-    height: 38px;
+    width: 36px;
+    height: 36px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
+    flex-shrink: 0;
   }
   .badge-icon.gold { background: rgba(245, 158, 11, 0.2); color: var(--gold); }
   .badge-icon.red { background: rgba(230, 25, 55, 0.2); color: var(--primary); }
 
-  .badge-info .badge-title { font-weight: 800; font-size: 0.95rem; color: var(--text-main); }
-  .badge-info .badge-sub { font-size: 0.75rem; color: var(--text-muted); }
+  .badge-info .badge-title { font-weight: 800; font-size: 0.9rem; color: var(--text-main); }
+  .badge-info .badge-sub { font-size: 0.74rem; color: var(--text-muted); }
 
   /* ================= REAL-TIME STATS STRIP ================= */
   .stats-bar {
     background: linear-gradient(90deg, #b80d26 0%, #e61937 50%, #9e0e24 100%);
     color: #fff;
-    padding: 24px 0;
+    padding: 22px 0;
     box-shadow: inset 0 2px 8px rgba(0,0,0,0.2);
     position: relative;
     z-index: 5;
@@ -636,18 +776,18 @@
     text-align: center;
   }
   .stat-item {
-    padding: 0 16px;
+    padding: 8px 14px;
     border-right: 1px solid rgba(255, 255, 255, 0.2);
   }
   .stat-item:last-child { border-right: none; }
   .stat-val {
     font-family: var(--ff-display);
-    font-size: 2.4rem;
+    font-size: 2.2rem;
     line-height: 1;
     color: var(--gold-light);
   }
   .stat-lbl {
-    font-size: 0.85rem;
+    font-size: 0.82rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.05em;
@@ -662,33 +802,37 @@
   }
   
   .menu-controls {
-    margin-bottom: 36px;
+    margin-bottom: 32px;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 18px;
   }
   
-  /* Filter Category Tabs */
+  /* Filter Category Tabs (Smooth touch scroll, min 44px) */
   .category-tabs {
     display: flex;
     align-items: center;
     gap: 10px;
     overflow-x: auto;
-    padding-bottom: 8px;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 6px;
     scrollbar-width: none;
+    width: 100%;
   }
   .category-tabs::-webkit-scrollbar { display: none; }
   
   .tab-btn {
-    padding: 10px 22px;
+    padding: 10px 20px;
+    min-height: 44px;
     border-radius: var(--radius-full);
-    font-size: 0.92rem;
+    font-size: 0.9rem;
     font-weight: 700;
     color: var(--text-muted);
     background: var(--bg-card);
     border: 1px solid var(--border);
     white-space: nowrap;
-    transition: all 0.25s ease;
+    flex-shrink: 0;
+    transition: all 0.2s ease;
     display: flex;
     align-items: center;
     gap: 8px;
@@ -696,7 +840,6 @@
   .tab-btn:hover {
     color: var(--text-main);
     border-color: var(--gold);
-    transform: translateY(-2px);
   }
   .tab-btn.active {
     background: var(--primary);
@@ -710,18 +853,19 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 16px;
+    gap: 14px;
     flex-wrap: wrap;
+    width: 100%;
   }
   .search-box {
     position: relative;
-    flex: 1;
-    min-width: 260px;
-    max-width: 420px;
+    flex: 1 1 260px;
+    width: 100%;
   }
   .search-box input {
     width: 100%;
-    padding: 12px 18px 12px 42px;
+    min-height: 44px;
+    padding: 10px 18px 10px 42px;
     border-radius: var(--radius-full);
     background: var(--bg-card);
     border: 1px solid var(--border);
@@ -751,9 +895,10 @@
     gap: 8px;
   }
   .diet-filter-btn {
-    padding: 8px 14px;
+    padding: 8px 16px;
+    min-height: 44px;
     border-radius: var(--radius-full);
-    font-size: 0.82rem;
+    font-size: 0.85rem;
     font-weight: 700;
     background: var(--bg-card);
     border: 1px solid var(--border);
@@ -762,6 +907,7 @@
     align-items: center;
     gap: 6px;
     transition: all 0.2s ease;
+    white-space: nowrap;
   }
   .diet-filter-btn.active {
     background: rgba(255, 255, 255, 0.15);
@@ -772,11 +918,11 @@
     background: #e2d9cb;
   }
 
-  /* Food Grid */
+  /* Food Grid (Unconstrained column bounds) */
   .menu-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 26px;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
+    gap: 24px;
   }
   .food-card {
     background: var(--bg-card);
@@ -785,11 +931,12 @@
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease;
     position: relative;
+    width: 100%;
   }
   .food-card:hover {
-    transform: translateY(-6px);
+    transform: translateY(-4px);
     border-color: var(--border-hover);
     box-shadow: 0 18px 40px -15px rgba(0, 0, 0, 0.45);
   }
@@ -828,7 +975,7 @@
   }
 
   .food-card-body {
-    padding: 20px;
+    padding: 18px;
     display: flex;
     flex-direction: column;
     flex: 1;
@@ -836,7 +983,7 @@
   .food-card-title {
     font-family: var(--ff-body);
     font-weight: 800;
-    font-size: 1.2rem;
+    font-size: 1.18rem;
     color: var(--text-main);
     line-height: 1.25;
   }
@@ -848,28 +995,30 @@
     flex: 1;
   }
   .food-card-footer {
-    margin-top: 18px;
+    margin-top: 16px;
     padding-top: 14px;
     border-top: 1px solid var(--border);
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 10px;
   }
   .food-price {
     font-family: var(--ff-display);
-    font-size: 1.6rem;
+    font-size: 1.55rem;
     color: var(--gold);
     letter-spacing: 0.02em;
   }
   
-  /* Add button with quantity state */
+  /* Add button with quantity state (Min 44px height) */
   .add-to-cart-btn {
     background: var(--primary);
     color: #fff;
     border: none;
     border-radius: var(--radius-full);
     padding: 8px 18px;
-    font-size: 0.85rem;
+    min-height: 44px;
+    font-size: 0.88rem;
     font-weight: 700;
     display: inline-flex;
     align-items: center;
@@ -878,38 +1027,38 @@
   }
   .add-to-cart-btn:hover {
     background: var(--primary-dark);
-    transform: scale(1.04);
   }
   
   .qty-counter {
     display: flex;
     align-items: center;
     background: rgba(230, 25, 55, 0.15);
-    border: 1px solid var(--primary);
+    border: 1.5px solid var(--primary);
     border-radius: var(--radius-full);
     overflow: hidden;
+    min-height: 44px;
   }
   .qty-btn {
-    width: 28px;
-    height: 28px;
+    width: 38px;
+    height: 44px;
     color: #fff;
     background: var(--primary);
     display: flex;
     align-items: center;
     justify-content: center;
     font-weight: 800;
-    font-size: 0.9rem;
+    font-size: 1rem;
     transition: background 0.15s;
   }
   .qty-btn:hover { background: var(--primary-dark); }
   .qty-val {
     padding: 0 10px;
-    font-size: 0.88rem;
+    font-size: 0.95rem;
     font-weight: 800;
     color: var(--text-main);
   }
 
-  /* ================= BUILD YOUR SMASH BURGER (GAMIFIED CUSTOMIZER) ================= */
+  /* ================= BUILD YOUR SMASH BURGER ================= */
   .customizer-section {
     background: radial-gradient(circle at 50% 50%, rgba(245, 158, 11, 0.08) 0%, transparent 70%), var(--bg-main);
     border-top: 1px solid var(--border);
@@ -918,7 +1067,7 @@
   .customizer-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 50px;
+    gap: 40px;
     align-items: center;
   }
 
@@ -926,15 +1075,15 @@
     background: var(--bg-card);
     border: 1px solid var(--border);
     border-radius: var(--radius-lg);
-    padding: 40px 30px;
+    padding: 30px 20px;
     text-align: center;
     position: relative;
     box-shadow: var(--shadow-subtle);
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-height: 480px;
     justify-content: center;
+    width: 100%;
   }
   .burger-stack {
     display: flex;
@@ -942,22 +1091,22 @@
     align-items: center;
     gap: 3px;
     margin: 20px 0;
-    min-height: 240px;
+    min-height: 220px;
     justify-content: center;
     transition: all 0.3s ease;
   }
   .burger-layer {
-    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
     animation: dropIn 0.35s ease-out;
   }
   @keyframes dropIn {
-    0% { opacity: 0; transform: translateY(-20px) scale(0.9); }
+    0% { opacity: 0; transform: translateY(-16px) scale(0.9); }
     100% { opacity: 1; transform: translateY(0) scale(1); }
   }
 
   .layer-bun-top {
-    width: 170px;
-    height: 48px;
+    width: 160px;
+    height: 44px;
     background: linear-gradient(180deg, #d97706 0%, #b45309 100%);
     border-radius: 90px 90px 10px 10px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.3);
@@ -966,7 +1115,7 @@
   .layer-bun-top::after {
     content: "•  •  •  •  •";
     position: absolute;
-    top: 10px;
+    top: 8px;
     left: 0;
     right: 0;
     font-size: 10px;
@@ -974,48 +1123,48 @@
     letter-spacing: 12px;
   }
   .layer-lettuce {
-    width: 190px;
-    height: 14px;
+    width: 180px;
+    height: 12px;
     background: #4ade80;
-    border-radius: 8px;
+    border-radius: 6px;
     box-shadow: 0 2px 6px rgba(0,0,0,0.2);
   }
   .layer-cheese {
-    width: 180px;
-    height: 12px;
+    width: 170px;
+    height: 10px;
     background: #fbbf24;
     border-radius: 4px;
     transform: rotate(-2deg);
     box-shadow: 0 2px 6px rgba(0,0,0,0.2);
   }
   .layer-patty {
-    width: 175px;
-    height: 24px;
+    width: 165px;
+    height: 22px;
     background: #78350f;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.4);
   }
   .layer-onion {
-    width: 165px;
+    width: 155px;
     height: 10px;
     background: #f472b6;
     border-radius: 6px;
   }
   .layer-jalapeno {
-    width: 160px;
+    width: 150px;
     height: 10px;
     background: #15803d;
     border-radius: 5px;
   }
   .layer-sauce {
-    width: 170px;
+    width: 160px;
     height: 8px;
     background: #ef4444;
     border-radius: 4px;
   }
   .layer-bun-bottom {
-    width: 165px;
-    height: 28px;
+    width: 155px;
+    height: 26px;
     background: linear-gradient(180deg, #b45309 0%, #92400e 100%);
     border-radius: 8px 8px 30px 30px;
     box-shadow: 0 6px 12px rgba(0,0,0,0.3);
@@ -1024,13 +1173,14 @@
   .customizer-options {
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 20px;
+    width: 100%;
   }
   .option-group-title {
     font-weight: 800;
     font-size: 0.95rem;
     color: var(--text-main);
-    margin-bottom: 10px;
+    margin-bottom: 8px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -1038,10 +1188,12 @@
   .option-pills {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 8px;
+    width: 100%;
   }
   .option-chip {
-    padding: 8px 16px;
+    padding: 10px 16px;
+    min-height: 44px;
     background: var(--bg-card);
     border: 1px solid var(--border);
     border-radius: var(--radius-full);
@@ -1053,6 +1205,7 @@
     display: flex;
     align-items: center;
     gap: 6px;
+    flex-wrap: wrap;
   }
   .option-chip:hover {
     border-color: var(--gold);
@@ -1070,16 +1223,19 @@
     background: rgba(245, 158, 11, 0.1);
     border: 1px dashed var(--gold);
     border-radius: var(--radius-md);
-    padding: 18px 24px;
-    margin-top: 10px;
+    padding: 16px 20px;
+    margin-top: 14px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 12px;
+    width: 100%;
   }
   .summary-price {
     font-family: var(--ff-display);
     font-size: 2rem;
     color: var(--gold);
+    white-space: nowrap;
   }
 
   /* ================= BENTO GRID (CRAVINGS) ================= */
@@ -1087,7 +1243,7 @@
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     grid-auto-rows: 200px;
-    gap: 20px;
+    gap: 18px;
   }
   .bento-card {
     position: relative;
@@ -1098,6 +1254,7 @@
     box-shadow: var(--shadow-subtle);
     border: 1px solid var(--border);
     cursor: pointer;
+    min-height: 200px;
   }
   .bento-card img {
     position: absolute;
@@ -1105,7 +1262,7 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
   }
   .bento-card::before {
     content: "";
@@ -1115,7 +1272,7 @@
     z-index: 1;
     transition: background 0.3s ease;
   }
-  .bento-card:hover img { transform: scale(1.08); }
+  .bento-card:hover img { transform: scale(1.06); }
   .bento-card:hover::before {
     background: linear-gradient(0deg, rgba(12, 9, 8, 0.95) 0%, rgba(230, 25, 55, 0.3) 100%);
   }
@@ -1126,25 +1283,25 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    padding: 24px;
+    padding: 20px;
   }
   .bento-content h3 {
     font-family: var(--ff-display);
-    font-size: 1.8rem;
+    font-size: 1.7rem;
     letter-spacing: 0.02em;
     line-height: 1;
     color: #fff;
   }
   .bento-content p {
-    font-size: 0.88rem;
-    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.86rem;
+    color: rgba(255, 255, 255, 0.82);
     margin-top: 6px;
     max-width: 260px;
   }
   .bento-tag {
     position: absolute;
-    top: 18px;
-    left: 18px;
+    top: 14px;
+    left: 14px;
     z-index: 2;
   }
 
@@ -1152,34 +1309,36 @@
   .bento-col-3-row-1 { grid-column: span 3; grid-row: span 1; }
   .bento-col-2-row-1 { grid-column: span 2; grid-row: span 1; }
 
-  /* ================= CRAVING MATCHER (MOOD QUIZ) ================= */
+  /* ================= CRAVING MATCHER ================= */
   .craving-matcher-card {
     background: var(--bg-card);
     border: 1px solid var(--border);
     border-radius: var(--radius-lg);
-    padding: 40px;
-    margin-top: 50px;
+    padding: 32px 24px;
+    margin-top: 40px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 30px;
+    gap: 24px;
     flex-wrap: wrap;
     box-shadow: var(--shadow-subtle);
+    width: 100%;
   }
-  .matcher-left { flex: 1; min-width: 280px; }
+  .matcher-left { flex: 1 1 280px; width: 100%; }
   .matcher-title {
     font-family: var(--ff-display);
-    font-size: 2.2rem;
+    font-size: 2rem;
     color: var(--text-main);
   }
   .mood-buttons {
     display: flex;
-    gap: 12px;
+    gap: 8px;
     flex-wrap: wrap;
-    margin-top: 18px;
+    margin-top: 14px;
   }
   .mood-btn {
-    padding: 10px 18px;
+    padding: 10px 16px;
+    min-height: 44px;
     border-radius: var(--radius-full);
     background: rgba(255, 255, 255, 0.06);
     border: 1px solid var(--border);
@@ -1198,21 +1357,24 @@
     background: var(--bg-surface);
     border: 1px solid var(--border);
     border-radius: var(--radius-md);
-    padding: 20px 24px;
+    padding: 18px 20px;
     display: flex;
     align-items: center;
-    gap: 20px;
-    min-width: 320px;
+    gap: 16px;
+    flex: 1 1 300px;
+    width: 100%;
   }
   .matcher-result-img {
     width: 65px;
     height: 65px;
     border-radius: 12px;
     object-fit: cover;
+    flex-shrink: 0;
   }
+  .matcher-result-info { flex: 1; }
   .matcher-result-info h4 {
     font-weight: 800;
-    font-size: 1.05rem;
+    font-size: 1.02rem;
     color: var(--text-main);
   }
   .matcher-result-info p {
@@ -1230,57 +1392,57 @@
     justify-content: space-between;
     gap: 20px;
     flex-wrap: wrap;
-    margin-bottom: 40px;
+    margin-bottom: 36px;
   }
   .review-overall-badge {
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: 14px;
     background: var(--bg-card);
     border: 1px solid var(--border);
-    padding: 16px 24px;
+    padding: 14px 20px;
     border-radius: var(--radius-md);
   }
   .overall-score {
     font-family: var(--ff-display);
-    font-size: 3.2rem;
+    font-size: 3rem;
     line-height: 1;
     color: var(--primary);
   }
   .review-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
+    gap: 20px;
   }
   .review-card {
     background: var(--bg-card);
     border-radius: var(--radius-md);
     border: 1px solid var(--border);
-    padding: 28px;
+    padding: 24px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     box-shadow: var(--shadow-subtle);
-    transition: transform 0.3s ease, border-color 0.3s ease;
+    transition: transform 0.25s ease, border-color 0.25s ease;
   }
   .review-card:hover {
-    transform: translateY(-4px);
+    transform: translateY(-3px);
     border-color: var(--gold);
   }
   .review-card-stars {
     color: var(--gold);
     font-size: 1rem;
     letter-spacing: 2px;
-    margin-bottom: 14px;
+    margin-bottom: 12px;
   }
   .review-card-text {
-    font-size: 0.98rem;
+    font-size: 0.95rem;
     color: var(--text-main);
     line-height: 1.6;
     font-style: italic;
   }
   .review-card-author {
-    margin-top: 20px;
+    margin-top: 18px;
     display: flex;
     align-items: center;
     gap: 12px;
@@ -1295,7 +1457,8 @@
     align-items: center;
     justify-content: center;
     font-weight: 800;
-    font-size: 0.95rem;
+    font-size: 0.92rem;
+    flex-shrink: 0;
   }
   .author-meta .author-name { font-weight: 700; font-size: 0.92rem; color: var(--text-main); }
   .author-meta .author-tag { font-size: 0.78rem; color: var(--text-dim); }
@@ -1304,13 +1467,13 @@
   .gallery-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 16px;
+    gap: 14px;
   }
   .gallery-item {
     position: relative;
     border-radius: var(--radius-md);
     overflow: hidden;
-    height: 240px;
+    height: 220px;
     border: 1px solid var(--border);
   }
   .gallery-item img {
@@ -1319,7 +1482,7 @@
     object-fit: cover;
     transition: transform 0.5s ease;
   }
-  .gallery-item:hover img { transform: scale(1.08); }
+  .gallery-item:hover img { transform: scale(1.06); }
   .gallery-overlay {
     position: absolute;
     inset: 0;
@@ -1341,14 +1504,14 @@
   .loc-container-grid {
     display: grid;
     grid-template-columns: 1fr 1.2fr;
-    gap: 40px;
+    gap: 36px;
     align-items: stretch;
   }
   .loc-card-details {
     background: var(--bg-card);
     border: 1px solid var(--border);
     border-radius: var(--radius-lg);
-    padding: 36px;
+    padding: 32px 24px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -1359,47 +1522,47 @@
     color: var(--text-main);
   }
   .loc-address {
-    margin-top: 16px;
+    margin-top: 14px;
     color: var(--text-muted);
-    font-size: 1.05rem;
+    font-size: 1.02rem;
     line-height: 1.6;
   }
   .loc-live-status {
-    margin-top: 24px;
+    margin-top: 20px;
     display: flex;
     align-items: center;
     gap: 10px;
     font-weight: 700;
-    font-size: 1rem;
+    font-size: 0.98rem;
   }
   .loc-timings {
     margin-top: 6px;
-    font-size: 0.92rem;
+    font-size: 0.9rem;
     color: var(--text-dim);
   }
   .loc-actions {
-    margin-top: 32px;
+    margin-top: 28px;
     display: flex;
     flex-wrap: wrap;
-    gap: 14px;
+    gap: 12px;
   }
 
   .map-wrapper {
     border-radius: var(--radius-lg);
     overflow: hidden;
     border: 1px solid var(--border);
-    min-height: 380px;
+    min-height: 360px;
     box-shadow: var(--shadow-subtle);
   }
   .map-wrapper iframe {
     width: 100%;
     height: 100%;
-    min-height: 380px;
+    min-height: 360px;
     border: none;
     display: block;
   }
 
-  /* ================= ORDER DRAWER (SHOPPING BAG) ================= */
+  /* ================= ORDER DRAWER (MAX HEIGHT 90VH & SCROLL LOCK) ================= */
   .cart-drawer-overlay {
     position: fixed;
     inset: 0;
@@ -1408,7 +1571,7 @@
     z-index: 1000;
     opacity: 0;
     pointer-events: none;
-    transition: opacity 0.35s ease;
+    transition: opacity 0.3s ease;
   }
   .cart-drawer-overlay.active {
     opacity: 1;
@@ -1420,26 +1583,29 @@
     right: 0;
     bottom: 0;
     width: 100%;
-    max-width: 440px;
+    max-width: min(440px, 100vw);
     background: var(--bg-surface);
     border-left: 1px solid var(--border);
     box-shadow: -15px 0 50px rgba(0, 0, 0, 0.6);
     z-index: 1001;
     transform: translateX(100%);
-    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
     display: flex;
     flex-direction: column;
+    height: 100%;
+    max-height: 100vh;
   }
   .cart-drawer-overlay.active .cart-drawer {
     transform: translateX(0);
   }
 
   .drawer-head {
-    padding: 24px;
+    padding: 20px;
     border-bottom: 1px solid var(--border);
     display: flex;
     align-items: center;
     justify-content: space-between;
+    flex-shrink: 0;
   }
   .drawer-head h3 {
     font-family: var(--ff-display);
@@ -1447,24 +1613,27 @@
     color: var(--text-main);
   }
   .drawer-close-btn {
-    width: 36px;
-    height: 36px;
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    min-height: 44px;
     border-radius: 50%;
     background: rgba(255, 255, 255, 0.08);
     display: flex;
     align-items: center;
     justify-content: center;
     color: var(--text-main);
-    font-size: 1.3rem;
+    font-size: 1.4rem;
   }
 
   .drawer-body {
     flex: 1;
     overflow-y: auto;
-    padding: 24px;
+    -webkit-overflow-scrolling: touch;
+    padding: 20px;
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 14px;
   }
   .cart-empty-msg {
     text-align: center;
@@ -1488,24 +1657,27 @@
     border: 1px solid var(--border);
     border-radius: var(--radius-md);
   }
-  .cart-item-name { font-weight: 700; font-size: 0.95rem; color: var(--text-main); }
+  .cart-item-name { font-weight: 700; font-size: 0.92rem; color: var(--text-main); }
   .cart-item-price { font-size: 0.85rem; color: var(--gold); font-weight: 700; }
 
   .drawer-foot {
-    padding: 24px;
+    padding: 20px;
     border-top: 1px solid var(--border);
     background: var(--bg-card);
+    flex-shrink: 0;
+    padding-bottom: calc(20px + env(safe-area-inset-bottom, 0px));
   }
   .order-type-switch {
     display: flex;
     background: var(--bg-main);
     border-radius: var(--radius-full);
     padding: 4px;
-    margin-bottom: 18px;
+    margin-bottom: 14px;
   }
   .order-type-btn {
     flex: 1;
     padding: 8px;
+    min-height: 40px;
     border-radius: var(--radius-full);
     font-size: 0.85rem;
     font-weight: 700;
@@ -1520,22 +1692,22 @@
   .order-bill-row {
     display: flex;
     justify-content: space-between;
-    font-size: 0.92rem;
+    font-size: 0.9rem;
     color: var(--text-muted);
-    margin-bottom: 8px;
+    margin-bottom: 6px;
   }
   .order-bill-total {
     display: flex;
     justify-content: space-between;
     font-weight: 800;
-    font-size: 1.25rem;
+    font-size: 1.2rem;
     color: var(--text-main);
-    padding-top: 12px;
+    padding-top: 10px;
     border-top: 1px dashed var(--border);
-    margin-top: 8px;
+    margin-top: 6px;
   }
 
-  /* ================= DISH QUICK VIEW MODAL ================= */
+  /* ================= DISH QUICK VIEW MODAL (MAX 90VH) ================= */
   .dish-modal-overlay {
     position: fixed;
     inset: 0;
@@ -1545,7 +1717,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 20px;
+    padding: 16px;
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.3s ease;
@@ -1559,10 +1731,13 @@
     border: 1px solid var(--border);
     border-radius: var(--radius-lg);
     width: 100%;
-    max-width: 540px;
+    max-width: 520px;
+    max-height: min(90vh, 640px);
+    display: flex;
+    flex-direction: column;
     overflow: hidden;
     box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7);
-    transform: scale(0.95);
+    transform: scale(0.96);
     transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     position: relative;
   }
@@ -1570,50 +1745,57 @@
     transform: scale(1);
   }
   .dish-modal-img {
-    height: 240px;
+    height: 200px;
     width: 100%;
     object-fit: cover;
+    flex-shrink: 0;
+    background-color: var(--bg-card);
   }
   .dish-modal-close {
     position: absolute;
-    top: 16px;
-    right: 16px;
-    width: 36px;
-    height: 36px;
+    top: 14px;
+    right: 14px;
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    min-height: 44px;
     border-radius: 50%;
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, 0.65);
     color: #fff;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.4rem;
-    z-index: 5;
+    font-size: 1.5rem;
+    z-index: 10;
   }
   .dish-modal-body {
-    padding: 26px;
+    padding: 22px;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    flex: 1;
   }
   .dish-modal-meta {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
   }
   .dish-modal-title {
     font-family: var(--ff-body);
     font-weight: 800;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     color: var(--text-main);
   }
   .dish-modal-desc {
-    margin-top: 10px;
+    margin-top: 8px;
     color: var(--text-muted);
-    font-size: 0.95rem;
+    font-size: 0.92rem;
     line-height: 1.5;
   }
   .dish-modal-specs {
     display: flex;
-    gap: 14px;
-    margin: 20px 0;
+    gap: 10px;
+    margin: 16px 0;
     flex-wrap: wrap;
   }
   .spec-badge {
@@ -1629,13 +1811,13 @@
   .site-footer {
     background: #080605;
     color: var(--text-muted);
-    padding: 80px 0 30px;
+    padding: 70px 0 30px;
     border-top: 1px solid var(--border);
   }
   .footer-grid {
     display: grid;
     grid-template-columns: 1.5fr 1fr 1fr 1fr;
-    gap: 40px;
+    gap: 36px;
   }
   .footer-brand h2 {
     font-family: var(--ff-display);
@@ -1643,7 +1825,7 @@
     color: #fff;
   }
   .footer-brand p {
-    margin-top: 12px;
+    margin-top: 10px;
     font-size: 0.92rem;
     max-width: 280px;
     line-height: 1.5;
@@ -1651,11 +1833,13 @@
   .footer-social-row {
     display: flex;
     gap: 10px;
-    margin-top: 18px;
+    margin-top: 16px;
   }
   .social-icon-btn {
-    width: 38px;
-    height: 38px;
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    min-height: 44px;
     border-radius: 50%;
     background: rgba(255, 255, 255, 0.08);
     display: flex;
@@ -1666,7 +1850,7 @@
   }
   .social-icon-btn:hover {
     background: var(--primary);
-    transform: translateY(-3px);
+    transform: translateY(-2px);
   }
   .social-icon-btn svg { width: 18px; height: 18px; fill: currentColor; }
 
@@ -1674,99 +1858,145 @@
     color: #fff;
     font-size: 1rem;
     font-weight: 700;
-    margin-bottom: 18px;
+    margin-bottom: 16px;
   }
-  .footer-col li { margin-bottom: 10px; }
+  .footer-col li { margin-bottom: 8px; }
   .footer-col a {
     font-size: 0.92rem;
+    min-height: 36px;
+    display: inline-flex;
+    align-items: center;
     transition: color 0.2s;
   }
   .footer-col a:hover { color: var(--gold); }
   
   .footer-bottom {
-    margin-top: 60px;
-    padding-top: 24px;
+    margin-top: 50px;
+    padding-top: 20px;
     border-top: 1px solid rgba(255, 255, 255, 0.08);
     display: flex;
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
-    gap: 16px;
+    gap: 14px;
     font-size: 0.82rem;
     color: var(--text-dim);
   }
 
-  /* ================= MOBILE BOTTOM BAR ================= */
+  /* ================= MOBILE BOTTOM STICKY BAR ================= */
   .mobile-bottom-bar {
     position: fixed;
-    left: 14px;
-    right: 14px;
-    bottom: 14px;
+    left: 12px;
+    right: 12px;
+    bottom: calc(10px + env(safe-area-inset-bottom, 0px));
     z-index: 450;
-    background: rgba(18, 14, 11, 0.92);
+    background: rgba(18, 14, 11, 0.94);
     backdrop-filter: blur(18px);
     -webkit-backdrop-filter: blur(18px);
     border: 1px solid var(--border);
     border-radius: var(--radius-full);
-    padding: 8px 12px 8px 18px;
+    padding: 6px 10px 6px 16px;
     display: none;
     align-items: center;
     justify-content: space-between;
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+    min-height: 54px;
   }
   [data-theme="light"] .mobile-bottom-bar {
-    background: rgba(255, 255, 255, 0.92);
+    background: rgba(255, 255, 255, 0.95);
   }
   .mobile-bottom-info {
     display: flex;
     flex-direction: column;
+    overflow: hidden;
   }
-  .mob-brand { font-weight: 800; font-size: 0.95rem; color: var(--text-main); }
-  .mob-sub { font-size: 0.72rem; color: #22c55e; font-weight: 700; }
+  .mob-brand { font-weight: 800; font-size: 0.9rem; color: var(--text-main); white-space: nowrap; }
+  .mob-sub { font-size: 0.72rem; color: #22c55e; font-weight: 700; white-space: nowrap; }
 
   /* REVEAL ANIMATIONS */
   .reveal {
     opacity: 0;
-    transform: translateY(26px);
-    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    transform: translateY(24px);
+    transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
   }
   .reveal.is-visible {
     opacity: 1;
     transform: translateY(0);
   }
 
-  /* ================= RESPONSIVENESS ================= */
+  /* ================= AUDITED RESPONSIVE BREAKPOINTS ================= */
+  
+  /* Tablet View (601px – 1024px) */
   @media (max-width: 1024px) {
     .hero-grid { grid-template-columns: 1fr; }
-    .hero-visual { margin-top: 30px; }
+    .hero-visual { margin-top: 20px; }
     .customizer-grid { grid-template-columns: 1fr; }
     .loc-container-grid { grid-template-columns: 1fr; }
     .bento-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 220px; }
     .bento-col-3-row-2, .bento-col-3-row-1, .bento-col-2-row-1 { grid-column: span 1; grid-row: span 1; }
-    .bento-col-3-row-2 { grid-column: span 2; height: 300px; }
+    .bento-col-3-row-2 { grid-column: span 2; height: 280px; }
     .review-grid { grid-template-columns: repeat(2, 1fr); }
     .gallery-grid { grid-template-columns: repeat(2, 1fr); }
   }
 
-  @media (max-width: 768px) {
+  /* Tablet & Mobile Nav Toggle (<= 860px) */
+  @media (max-width: 860px) {
     .nav-links { display: none; }
     .burger-btn { display: flex; }
-    .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 16px 0; }
-    .stat-item:nth-child(2) { border-right: none; }
-    .review-grid { grid-template-columns: 1fr; }
-    .footer-grid { grid-template-columns: 1fr 1fr; }
     .mobile-bottom-bar { display: flex; }
-    body { padding-bottom: 70px; }
   }
 
-  @media (max-width: 480px) {
-    .hero h1 { font-size: 2.8rem; }
-    .footer-grid { grid-template-columns: 1fr; }
-    .bento-grid { grid-template-columns: 1fr; }
-    .bento-col-3-row-2 { grid-column: span 1; }
-    .hero-art-card { height: 380px; }
-    .badge-bottom-left { left: 0; bottom: -10px; }
-    .badge-top-right { right: 0; top: -10px; }
+  /* Medium Mobile (<= 768px) */
+  @media (max-width: 768px) {
+    .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 14px 0; }
+    .stat-item:nth-child(2) { border-right: none; }
+    .stat-item:nth-child(-n+2) { border-bottom: 1px solid rgba(255, 255, 255, 0.2); padding-bottom: 12px; }
+    .review-grid { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+  }
+
+  /* Small Mobile (<= 600px) */
+  @media (max-width: 600px) {
+    .container { padding: 0 16px; }
+    .section-pad { padding: 60px 0; }
+    .hero { padding: 110px 0 50px; }
+    
+    .hero-cta-group { flex-direction: column; width: 100%; }
+    .hero-cta-group .btn { width: 100%; }
+    
+    .menu-grid { grid-template-columns: 1fr; }
+    
+    .bento-grid { grid-template-columns: 1fr; grid-auto-rows: auto; gap: 14px; }
+    .bento-col-3-row-2, .bento-col-3-row-1, .bento-col-2-row-1 { grid-column: span 1; grid-row: span 1; min-height: 200px; }
+    
+    .hero-art-card { height: 340px; }
+    .badge-bottom-left { left: 8px; bottom: 8px; }
+    .badge-top-right { right: 8px; top: 8px; }
+    
+    .craving-matcher-card { padding: 22px 16px; }
+    .mood-buttons { display: grid; grid-template-columns: 1fr; width: 100%; }
+    .mood-btn { width: 100%; text-align: center; }
+    .matcher-result { flex-direction: column; text-align: center; }
+    .matcher-result #matcherAddBtn { width: 100%; }
+    
+    .loc-card-details { padding: 24px 18px; }
+    .loc-actions { flex-direction: column; }
+    .loc-actions .btn { width: 100%; }
+    
+    .footer-grid { grid-template-columns: 1fr; gap: 28px; }
+  }
+
+  /* Extra Small Mobile (<= 375px & 320px) */
+  @media (max-width: 375px) {
+    .container { padding: 0 12px; }
+    .hero h1 { font-size: 2.1rem; }
+    .brand-logo { font-size: 1.8rem; }
+    .brand-loc { display: none; }
+    .food-card-body { padding: 14px; }
+    .gallery-grid { grid-template-columns: 1fr; }
+    .option-chip { width: 100%; justify-content: space-between; }
+    .stats-bar .stat-val { font-size: 1.8rem; }
+    .stats-bar .stat-lbl { font-size: 0.72rem; }
   }
 </style>
 </head>
@@ -1811,12 +2041,41 @@
         <span class="cart-badge-count" id="cartBadgeCount">0</span>
       </button>
 
-      <button class="burger-btn" id="burgerToggle" aria-label="Toggle Navigation">
+      <!-- Hamburger Button (Mobile Drawer) -->
+      <button class="burger-btn" id="burgerToggle" aria-label="Open Navigation Menu">
         <span></span><span></span><span></span>
       </button>
     </div>
   </div>
 </header>
+
+<!-- ================= MOBILE NAVIGATION DRAWER ================= -->
+<div class="mobile-nav-overlay" id="mobileNavOverlay">
+  <div class="mobile-nav-drawer" id="mobileNavDrawer">
+    <div class="mobile-nav-head">
+      <div class="brand-logo">JOLLY'S<span>.</span></div>
+      <button class="mobile-nav-close" id="mobileNavClose" aria-label="Close Menu">&times;</button>
+    </div>
+
+    <div class="mobile-nav-links">
+      <a href="#home" class="mobile-nav-item">🏠 Home</a>
+      <a href="#menu" class="mobile-nav-item">🍔 Our Menu</a>
+      <a href="#customizer" class="mobile-nav-item">🧪 Burger Lab</a>
+      <a href="#cravings" class="mobile-nav-item">🍱 Signature Cravings</a>
+      <a href="#reviews" class="mobile-nav-item">⭐ Customer Reviews</a>
+      <a href="#location" class="mobile-nav-item">📍 Find Us</a>
+    </div>
+
+    <div class="mobile-nav-footer">
+      <button class="btn btn-primary" onclick="closeMobileNav(); openCart();" style="width:100%;">
+        🛒 View Food Bag (<span id="mobNavBagCount">0</span>)
+      </button>
+      <a href="https://wa.me/916001005800" target="_blank" rel="noopener" class="btn btn-whatsapp" style="width:100%;">
+        💬 WhatsApp Order
+      </a>
+    </div>
+  </div>
+</div>
 
 <main>
 
@@ -1862,7 +2121,7 @@
         </div>
         <div style="width: 1px; height: 30px; background: var(--border);"></div>
         <div style="font-size: 0.88rem; color: var(--text-muted);">
-          ⚡ Avg order prep: <strong style="color:var(--text-main);">12-15 Mins</strong>
+          ⚡ Avg prep: <strong style="color:var(--text-main);">12-15 Mins</strong>
         </div>
       </div>
     </div>
@@ -1901,7 +2160,7 @@
     </div>
     <div class="stat-item">
       <div class="stat-val">₹199</div>
-      <div class="stat-lbl">Average Meal For Two</div>
+      <div class="stat-lbl">Average For Two</div>
     </div>
     <div class="stat-item">
       <div class="stat-val">12:30 AM</div>
@@ -1924,7 +2183,7 @@
     </div>
 
     <div class="menu-controls reveal">
-      <!-- Category Tabs -->
+      <!-- Category Tabs (Horizontal Touch Scroll) -->
       <div class="category-tabs" id="categoryTabs">
         <button class="tab-btn active" data-cat="all">🔥 All Items</button>
         <button class="tab-btn" data-cat="burgers">🍔 Smash Burgers</button>
@@ -1938,12 +2197,12 @@
       <div class="menu-secondary-bar">
         <div class="search-box">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-          <input type="text" id="menuSearch" placeholder="Search burger, cheese wrap, peri peri fries...">
+          <input type="text" id="menuSearch" placeholder="Search burger, wrap, fries...">
         </div>
 
         <div class="dietary-filters">
           <button class="diet-filter-btn active" data-diet="all">All</button>
-          <button class="diet-filter-btn" data-diet="veg"><span class="badge-veg"></span> Veg Only</button>
+          <button class="diet-filter-btn" data-diet="veg"><span class="badge-veg"></span> Veg</button>
           <button class="diet-filter-btn" data-diet="nonveg"><span class="badge-nonveg"></span> Non-Veg</button>
         </div>
       </div>
@@ -1951,7 +2210,7 @@
 
     <!-- Food Grid -->
     <div class="menu-grid" id="menuGrid">
-      <!-- Injected via JavaScript with actual delicious items -->
+      <!-- Injected via JavaScript -->
     </div>
   </div>
 </section>
@@ -1983,7 +2242,7 @@
         <div class="custom-burger-summary">
           <div>
             <div style="font-weight:700; font-size:0.95rem; color:var(--text-main);" id="customBurgerTitle">The Classic Single Smash</div>
-            <div style="font-size:0.8rem; color:var(--text-muted);" id="customBurgerIngredients">Brioche Bun, Single Smash, Cheddar Cheese, House Secret Sauce</div>
+            <div style="font-size:0.8rem; color:var(--text-muted); margin-top:3px;" id="customBurgerIngredients">Brioche Bun, Single Smash, Cheddar Cheese, House Secret Sauce</div>
           </div>
           <div class="summary-price" id="customBurgerPrice">₹189</div>
         </div>
@@ -2126,7 +2385,7 @@
           <h4 id="matcherName">Double Smash + Monster Fries</h4>
           <p id="matcherDesc">₹349 • The ultimate late-night stomach filler.</p>
         </div>
-        <button class="btn btn-gold btn-sm" id="matcherAddBtn" style="margin-left:auto;">Add</button>
+        <button class="btn btn-gold btn-sm" id="matcherAddBtn">Add</button>
       </div>
     </div>
   </div>
@@ -2338,7 +2597,7 @@
   <div class="cart-drawer">
     <div class="drawer-head">
       <h3>Your Bag (<span id="drawerItemCount">0</span>)</h3>
-      <button class="drawer-close-btn" id="cartCloseBtn">&times;</button>
+      <button class="drawer-close-btn" id="cartCloseBtn" aria-label="Close Bag">&times;</button>
     </div>
 
     <div class="drawer-body" id="drawerCartItems">
@@ -2353,7 +2612,7 @@
     <div class="drawer-foot" id="drawerFoot" style="display:none;">
       <div class="order-type-switch">
         <button class="order-type-btn active" id="orderTypeDelivery">🛵 Home Delivery</button>
-        <button class="order-type-btn" id="orderTypeDineIn">🍽️ Dine-in / Takeaway</button>
+        <button class="order-type-btn" id="orderTypeDineIn">🍽️ Takeaway</button>
       </div>
 
       <div class="order-bill-row">
@@ -2369,7 +2628,7 @@
         <span id="billGrandTotal" style="color:var(--gold);">₹0</span>
       </div>
 
-      <button class="btn btn-whatsapp" id="whatsappCheckoutBtn" style="width:100%; margin-top:18px;">
+      <button class="btn btn-whatsapp" id="whatsappCheckoutBtn" style="width:100%; margin-top:14px;">
         <svg viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.698.077-2.029-.474-1.623-.674-2.651-2.327-2.73-2.433-.079-.105-.648-.862-.648-1.643 0-.781.408-1.164.553-1.324.144-.16.315-.2.42-.2.105 0 .21.001.302.006.097.005.228-.037.356.27.132.316.45 1.1.49 1.18.039.08.065.174.013.279-.053.105-.079.17-.158.263-.079.092-.167.206-.239.277-.08.079-.163.165-.07.325.092.16.41 1.144 1.155 1.808.435.388.802.508.916.565.114.057.181.048.249-.03.068-.078.29-.337.368-.452.079-.115.158-.096.263-.057.105.039.667.315.781.372.114.057.19.086.218.134.028.048.028.277-.116.682z"/></svg>
         Send Order to WhatsApp
       </button>
@@ -2380,8 +2639,8 @@
 <!-- ================= DISH QUICK VIEW MODAL ================= -->
 <div class="dish-modal-overlay" id="dishModalOverlay">
   <div class="dish-modal">
-    <button class="dish-modal-close" onclick="closeDishModal()">&times;</button>
-    <img class="dish-modal-img" id="modalDishImg" src="" alt="Dish Preview">
+    <button class="dish-modal-close" onclick="closeDishModal()" aria-label="Close Preview">&times;</button>
+    <img class="dish-modal-img" id="modalDishImg" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Crect width='100' height='100' fill='%23201914'/%3E%3C/svg%3E" alt="Dish Preview">
     <div class="dish-modal-body">
       <div class="dish-modal-meta">
         <div id="modalDishDiet"></div>
@@ -2403,17 +2662,17 @@
   </div>
 </div>
 
-<!-- ================= MOBILE FLOATING ORDER BAR ================= -->
+<!-- ================= MOBILE FLOATING BOTTOM BAR ================= -->
 <div class="mobile-bottom-bar">
   <div class="mobile-bottom-info">
     <div class="mob-brand">Jolly's Kalyan</div>
     <div class="mob-sub">🟢 Open • Sizzling Now</div>
   </div>
-  <div style="display:flex; gap:8px;">
+  <div style="display:flex; gap:8px; align-items:center;">
     <button class="btn btn-primary btn-sm" onclick="openCart()">
       🛒 Bag (<span id="mobBagCount">0</span>)
     </button>
-    <a href="https://wa.me/916001005800" class="btn btn-whatsapp btn-sm" target="_blank" rel="noopener">
+    <a href="https://wa.me/916001005800" class="btn btn-whatsapp btn-sm" target="_blank" rel="noopener" aria-label="WhatsApp">
       WhatsApp
     </a>
   </div>
@@ -2559,6 +2818,18 @@
   let cart = {}; // { itemId: qty }
   let customBurgers = [];
 
+  /* ---------------- SCROLL LOCK HELPER ---------------- */
+  function lockScroll() {
+    document.body.classList.add('modal-open');
+  }
+  function unlockScroll() {
+    // Only unlock if no modal / overlay is currently active
+    const hasActiveModal = document.querySelector('.dish-modal-overlay.active, .cart-drawer-overlay.active, .mobile-nav-overlay.active');
+    if (!hasActiveModal) {
+      document.body.classList.remove('modal-open');
+    }
+  }
+
   /* ---------------- RENDER MENU ---------------- */
   const menuGrid = document.getElementById('menuGrid');
   let currentCat = 'all';
@@ -2576,8 +2847,8 @@
 
     if (filtered.length === 0) {
       menuGrid.innerHTML = `
-        <div style="grid-column: 1/-1; text-align:center; padding: 60px 0; color:var(--text-muted);">
-          <div style="font-size:2.5rem; margin-bottom:10px;">🔍</div>
+        <div style="grid-column: 1/-1; text-align:center; padding: 40px 0; color:var(--text-muted);">
+          <div style="font-size:2.4rem; margin-bottom:8px;">🔍</div>
           <h3>No matching items found</h3>
           <p>Try searching for burgers, wraps, fries or clearing filters.</p>
         </div>
@@ -2587,7 +2858,7 @@
 
     menuGrid.innerHTML = filtered.map(item => {
       const qty = cart[item.id] || 0;
-      const dietBadge = item.diet === 'veg' ? '<span class="badge-veg"></span>' : '<span class="badge-nonveg"></span>';
+      const dietBadge = item.diet === 'veg' ? '<span class="badge-veg" title="Vegetarian"></span>' : '<span class="badge-nonveg" title="Non-Vegetarian"></span>';
       const bestsellerBadge = item.bestseller ? '<span class="tag-pill tag-fire">Bestseller</span>' : '';
 
       return `
@@ -2607,14 +2878,14 @@
             <div class="food-card-footer">
               <div class="food-price">₹${item.price}</div>
               ${qty === 0 ? `
-                <button class="add-to-cart-btn" onclick="addToCart(${item.id})">
+                <button class="add-to-cart-btn" onclick="addToCart(${item.id})" aria-label="Add ${item.name} to bag">
                   + Add
                 </button>
               ` : `
                 <div class="qty-counter">
-                  <button class="qty-btn" onclick="updateQty(${item.id}, -1)">-</button>
+                  <button class="qty-btn" onclick="updateQty(${item.id}, -1)" aria-label="Decrease quantity">-</button>
                   <span class="qty-val">${qty}</span>
-                  <button class="qty-btn" onclick="updateQty(${item.id}, 1)">+</button>
+                  <button class="qty-btn" onclick="updateQty(${item.id}, 1)" aria-label="Increase quantity">+</button>
                 </div>
               `}
             </div>
@@ -2661,6 +2932,7 @@
     document.getElementById('cartBadgeCount').textContent = totalItems;
     document.getElementById('drawerItemCount').textContent = totalItems;
     document.getElementById('mobBagCount').textContent = totalItems;
+    document.getElementById('mobNavBagCount').textContent = totalItems;
 
     const drawerBody = document.getElementById('drawerCartItems');
     const drawerFoot = document.getElementById('drawerFoot');
@@ -2688,9 +2960,9 @@
               <div class="cart-item-price">₹${item.price} each</div>
             </div>
             <div class="qty-counter">
-              <button class="qty-btn" onclick="updateQty(${item.id}, -1)">-</button>
+              <button class="qty-btn" onclick="updateQty(${item.id}, -1)" aria-label="Decrease quantity">-</button>
               <span class="qty-val">${qty}</span>
-              <button class="qty-btn" onclick="updateQty(${item.id}, 1)">+</button>
+              <button class="qty-btn" onclick="updateQty(${item.id}, 1)" aria-label="Increase quantity">+</button>
             </div>
           </div>
         `;
@@ -2727,13 +2999,43 @@
 
   /* ---------------- CART DRAWER TOGGLES ---------------- */
   const cartOverlay = document.getElementById('cartOverlay');
-  function openCart() { cartOverlay.classList.add('active'); document.body.style.overflow = 'hidden'; }
-  function closeCart() { cartOverlay.classList.remove('active'); document.body.style.overflow = ''; }
+  function openCart() { 
+    cartOverlay.classList.add('active'); 
+    lockScroll(); 
+  }
+  function closeCart() { 
+    cartOverlay.classList.remove('active'); 
+    unlockScroll(); 
+  }
   
   document.getElementById('cartOpenBtn').addEventListener('click', openCart);
   document.getElementById('cartCloseBtn').addEventListener('click', closeCart);
   cartOverlay.addEventListener('click', (e) => {
     if (e.target === cartOverlay) closeCart();
+  });
+
+  /* ---------------- MOBILE NAVIGATION DRAWER ---------------- */
+  const mobileNavOverlay = document.getElementById('mobileNavOverlay');
+  const burgerToggle = document.getElementById('burgerToggle');
+  const mobileNavClose = document.getElementById('mobileNavClose');
+
+  function openMobileNav() {
+    mobileNavOverlay.classList.add('active');
+    lockScroll();
+  }
+  function closeMobileNav() {
+    mobileNavOverlay.classList.remove('active');
+    unlockScroll();
+  }
+
+  burgerToggle.addEventListener('click', openMobileNav);
+  mobileNavClose.addEventListener('click', closeMobileNav);
+  mobileNavOverlay.addEventListener('click', (e) => {
+    if (e.target === mobileNavOverlay) closeMobileNav();
+  });
+
+  document.querySelectorAll('.mobile-nav-item').forEach(item => {
+    item.addEventListener('click', closeMobileNav);
   });
 
   /* ---------------- WHATSAPP ORDER GENERATOR ---------------- */
@@ -2753,13 +3055,13 @@
     });
 
     const isDelivery = document.getElementById('orderTypeDelivery').classList.contains('active');
-    const orderType = isDelivery ? '🛵 Home Delivery' : '🍽️ Dine-In / Takeaway';
+    const orderType = isDelivery ? '🛵 Home Delivery' : '🍽️ Takeaway';
 
     const grandTotal = document.getElementById('billGrandTotal').textContent;
     message += `────────────────────────────\n`;
     message += `*Order Mode:* ${orderType}\n`;
     message += `*Total Payable:* ${grandTotal}\n\n`;
-    message += `Please confirm my order and share the live preparation time!`;
+    message += `Please confirm my order and share live preparation time!`;
 
     const encoded = encodeURIComponent(message);
     window.open(`https://wa.me/916001005800?text=${encoded}`, '_blank');
@@ -2794,12 +3096,12 @@
     document.getElementById('modalDishDiet').innerHTML = item.diet === 'veg' ? '<span class="badge-veg"></span> 100% Pure Veg' : '<span class="badge-nonveg"></span> Non-Veg Special';
 
     dishModalOverlay.classList.add('active');
-    document.body.style.overflow = 'hidden';
+    lockScroll();
   }
 
   function closeDishModal() {
     dishModalOverlay.classList.remove('active');
-    document.body.style.overflow = '';
+    unlockScroll();
   }
 
   dishModalOverlay.addEventListener('click', (e) => {
@@ -2811,6 +3113,15 @@
       addToCart(currentModalItem.id);
       closeDishModal();
       openCart();
+    }
+  });
+
+  /* ESC key to close open overlays */
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      closeDishModal();
+      closeCart();
+      closeMobileNav();
     }
   });
 
@@ -3020,9 +3331,9 @@
   }
   updateKitchenStatus();
 
-  /* ---------------- 3D TILT EFFECT ON HERO CARD ---------------- */
+  /* ---------------- 3D TILT EFFECT ON HERO CARD (DISABLED ON TOUCH) ---------------- */
   const tiltCard = document.getElementById('heroTiltCard');
-  if (tiltCard && window.matchMedia('(hover: hover)').matches) {
+  if (tiltCard && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
     tiltCard.addEventListener('mousemove', (e) => {
       const rect = tiltCard.getBoundingClientRect();
       const x = e.clientX - rect.left - rect.width / 2;
@@ -3048,25 +3359,6 @@
     if (window.scrollY > 40) siteNav.classList.add('scrolled');
     else siteNav.classList.remove('scrolled');
   }, { passive: true });
-
-  /* ---------------- MOBILE BURGER TOGGLE ---------------- */
-  const burgerToggle = document.getElementById('burgerToggle');
-  burgerToggle.addEventListener('click', () => {
-    const links = document.querySelector('.nav-links');
-    if (links.style.display === 'flex') {
-      links.style.display = 'none';
-    } else {
-      links.style.display = 'flex';
-      links.style.position = 'absolute';
-      links.style.top = '100%';
-      links.style.left = '0';
-      links.style.right = '0';
-      links.style.flexDirection = 'column';
-      links.style.background = 'var(--bg-surface)';
-      links.style.padding = '20px';
-      links.style.borderBottom = '1px solid var(--border)';
-    }
-  });
 
   /* ---------------- SCROLL REVEAL OBSERVER ---------------- */
   const revealEls = document.querySelectorAll('.reveal');
